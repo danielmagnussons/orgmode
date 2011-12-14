@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[{${0:NUMBER}}]]></content>
+    <tabTrigger>i</tabTrigger>
+    <scope>text.orgmode</scope>
+    <description>internal link</description>
+</snippet>

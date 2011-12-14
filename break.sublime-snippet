@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[~ ${0:REASON}]]></content>
+    <tabTrigger>b</tabTrigger>
+    <scope>text.orgmode</scope>
+    <description>break</description>
+</snippet>

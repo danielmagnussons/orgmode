@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>fileTypes</key>
+	<array>
+		<string>org</string>
+	</array>
+	<key>keyEquivalent</key>
+	<string>^~P</string>
+	<key>name</key>
+	<string>orgmode</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>name</key>
+			<string>orgmode.page</string>
+			<key>match</key>
+			<string>^\s*\-\-\- [^\n]*</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>orgmode.break</string>
+			<key>match</key>
+			<string>^\s*[~]+ [^\n]*</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>orgmode.headline</string>
+			<key>match</key>
+			<string>^\s*[*]+ [^\[\]:\n]*</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>orgmode.tack</string>
+			<key>match</key>
+			<string>^\s*\- </string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>orgmode.follow_up</string>
+			<key>match</key>
+			<string>^\s*(\-\>|\=\>) </string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>orgmode.checkbox</string>
+			<key>match</key>
+			<string>(\[[xX ]\])\s?</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>orgmode.checkbox.summary</string>
+			<key>match</key>
+			<string>(\[\d*[/]\d*\])</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>orgmode.link</string>
+			<key>match</key>
+			<string>\[\[(.+?)?\]\]</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>orgmode.link.internal.number</string>
+			<key>match</key>
+			<string>\{(\d+)\}</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>orgmode.link.internal.headline</string>
+			<key>match</key>
+			<string>\{\{(.+?)\}\}</string>
+		</dict>
+		<dict>
+			<key>contentName</key>
+			<string>text source</string>
+			<key>begin</key>
+			<string>\[code\]\s*</string>
+			<key>end</key>
+			<string>\s*\[/code\]</string>
+			<key>patterns</key>
+			<array>
+ 				<dict>
+					<key>include</key>
+					<string>#python_exception.reference</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>orgmode.tags</string>
+			<key>match</key>
+			<string>(^|\s):[\w\d:]+:</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>orgmode.python.traceback</string>
+			<key>begin</key>
+			<string>^\s*Traceback \(most recent call last\):\s*$</string>
+			<key>end</key>
+			<string>^\s*\w+: .+$</string>
+			<key>patterns</key>
+			<array>
+ 				<dict>
+					<key>include</key>
+					<string>#python_exception.reference</string>
+				</dict>
+			</array>
+		</dict>
+	</array>
+	<key>repository</key>
+	<dict>
+		<key>python_exception.reference</key>
+		<dict>
+			<key>name</key>
+			<string>reference orgmode.python.traceback</string>
+			<key>match</key>
+			"^[ ]*File \"(...*?)\", line ([0-9]*)",
+			<string>File "(.+)", line (\d+), in (.*)$</string>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>filepath</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>line</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>function</string>
+				</dict>
+			</dict>
+		</dict>
+	</dict>
+	<key>scopeName</key>
+	<string>text.orgmode</string>
+	<key>uuid</key>
+	<string>D0287542-2284-452C-8648-B885B3E16B6F</string>
+</dict>
+</plist>

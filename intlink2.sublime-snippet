@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[{{${0:HEADLINE}}}]]></content>
+    <tabTrigger>ii</tabTrigger>
+    <scope>text.orgmode</scope>
+    <description>internal headline link</description>
+</snippet>

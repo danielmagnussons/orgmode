@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[--- ${0:YYYY-MM-DD} ---]]></content>
+    <tabTrigger>p</tabTrigger>
+    <scope>text.orgmode</scope>
+    <description>page</description>
+</snippet>

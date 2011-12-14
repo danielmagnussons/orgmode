@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[-> ${0:CONTENT}]]></content>
+    <tabTrigger>f</tabTrigger>
+    <scope>text.orgmode</scope>
+    <description>follow up</description>
+</snippet>

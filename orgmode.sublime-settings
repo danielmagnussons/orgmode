@@ -1,0 +1,12 @@
+{
+	"word_wrap": true,
+    "translate_tabs_to_spaces": true,
+    "tab_size": 2,
+    "auto_indent": true,
+    "indent_subsequent_lines": true,
+    "detect_indentation": false,
+    "line_numbers": false,
+    "save_on_focus_lost": true,
+    //"rulers": [80],
+    "gutter": true
+}

@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[* ]]></content>
+    <tabTrigger>h</tabTrigger>
+    <scope>text.orgmode</scope>
+    <description>headline</description>
+</snippet>

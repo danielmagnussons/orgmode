@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[[[${0:LINK}]]]]></content>
+    <tabTrigger>l</tabTrigger>
+    <scope>text.orgmode</scope>
+    <description>external link</description>
+</snippet>

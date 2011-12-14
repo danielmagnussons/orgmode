@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[- [X] ]]></content>
+    <tabTrigger>-cc</tabTrigger>
+    <scope>text.orgmode</scope>
+    <description>tack checkbox checked</description>
+</snippet>
