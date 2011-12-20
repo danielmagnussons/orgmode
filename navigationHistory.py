@@ -2,6 +2,8 @@
 '''
 http://www.sublimetext.com/forum/viewtopic.php?f=5&t=2738
 
+https://github.com/optilude/SublimeTextMisc
+
 Put this in your "Packages" directory and then configure "Key bindings - User" to use it. I use these keybindings for it on OS X:
 
 CODE: SELECT ALL
