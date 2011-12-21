@@ -8,8 +8,8 @@ https://github.com/optilude/SublimeTextMisc
 Put this in your "Packages" directory and then configure "Key bindings - User" to use it. I use these keybindings for it on OS X:
 
 CODE: SELECT ALL
-  { "keys": ["super+ctrl+alt+left"], "command": "navigation_history_back"},
-  { "keys": ["super+ctrl+alt+right"], "command": "navigation_history_forward"}
+  { "keys": ["alt+left"], "command": "navigation_history_back"},
+  { "keys": ["alt+right"], "command": "navigation_history_forward"}
 
 '''
 
@@ -23,8 +23,8 @@ LINE_THRESHOLD = 2
 class Location(object):
     """A location in the history
     """
-
-§        self.path = path
+    def __init__(self, path, line, col):
+        self.path = path
         self.line = line
         self.col = col
     
