@@ -1,0 +1,22 @@
+[
+	  //orgmode
+    { "keys": ["enter"], "command": "orgmode_toggle_checkbox", "context":
+      [{ "key": "selector", "operator": "equal", "operand": "orgmode.checkbox" }]
+    },
+    { "keys": ["enter"], "command": "orgmode_recalc_checkbox_summary", "context":
+      [{ "key": "selector", "operator": "equal", "operand":  "orgmode.checkbox.summary" }]
+    },
+    { "keys": ["enter"], "command": "orgmode_open_link", "context":
+      [{ "key": "selector", "operator": "equal", "operand":  "orgmode.link" }]
+    },
+    { "keys": ["enter"], "command": "orgmode_cycle_internal_link", "context":
+      [{ "key": "selector", "operator": "equal", "operand":  "orgmode.link.internal" }]
+    },
+
+    //navigation
+    { "keys": ["alt+left"], "command": "navigation_history_back"},
+    { "keys": ["alt+right"], "command": "navigation_history_forward"},
+
+    //open_recently_closed_file
+    { "keys": ["ctrl+shift+t"], "command": "open_recently_closed_file", "args": {"show_quick_panel": false}}
+]
