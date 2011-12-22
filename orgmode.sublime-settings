@@ -1,4 +1,5 @@
 {
+    "color_scheme": "Packages/orgmode/Color Scheme/Monokai Bright.tmTheme",
 	"word_wrap": true,
     "translate_tabs_to_spaces": true,
     "tab_size": 2,

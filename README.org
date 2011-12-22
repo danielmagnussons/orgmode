@@ -128,32 +128,6 @@ orgmode for Sublime Text 2
 
 * Attachments
 
-  * Key bindings for interaction
-    Put the following into your key bindings file:
-
-    [code]
-    { "keys": ["enter"], "command": "orgmode_toggle_checkbox", "context":
-      [
-        { "key": "selector", "operator": "equal", "operand": "orgmode.checkbox" }
-      ]
-    },
-    { "keys": ["enter"], "command": "orgmode_recalc_checkbox_summary", "context":
-      [
-        { "key": "selector", "operator": "equal", "operand":  "orgmode.checkbox.summary" }
-      ]
-    },
-    {  "keys": ["enter"], "command": "orgmode_open_link", "context":
-      [
-        { "key": "selector", "operator": "equal", "operand":  "orgmode.link" }
-      ]
-    },
-    {  "keys": ["enter"], "command": "orgmode_cycle_internal_link", "context":
-      [
-        { "key": "selector", "operator": "equal", "operand":  "orgmode.link.internal" }
-      ]
-    }
-    [/code]
-
   * Theme additions for proper syntax highlighting
     Put the following into your color scheme (.tmTheme file):
 

@@ -7,7 +7,7 @@
 
 	//crucible
 	"orgmode.open_link.resolver.crucible.url":"http://sandbox.fisheye.atlassian.com/cru/%s",
-	"orgmode.open_link.resolver.crucible.pattern":"(crucible|cru|cr):(?P<review>.+)$",
+	"orgmode.open_link.resolver.crucible.pattern":"^(crucible|cru|cr):(?P<review>.+)$",
 
 	//email
 	"orgmode.open_link.resolver.email.url":"mailto:%s",
@@ -15,7 +15,7 @@
 
 	//fisheye
 	"orgmode.open_link.resolver.fisheye.url":"http://sandbox.fisheye.atlassian.com/changelog/%s",
-	"orgmode.open_link.resolver.fisheye.pattern":"(^(fisheye|fish|fe):(?P<repo>[^/]+)(/(?P<rev>.+))?$",
+	"orgmode.open_link.resolver.fisheye.pattern":"^(fisheye|fish|fe):(?P<repo>[^/]+)(/(?P<rev>.+))?$",
 
 	//http
 	"orgmode.open_link.resolver.http.url":"http://sandbox.fisheye.atlassian.com/changelog/%s",
