@@ -18,8 +18,8 @@
 	"orgmode.open_link.resolver.fisheye.pattern":"^(fisheye|fish|fe):(?P<repo>[^/]+)(/(?P<rev>.+))?$",
 
 	//http
-	"orgmode.open_link.resolver.http.url":"http://sandbox.fisheye.atlassian.com/changelog/%s",
-	"orgmode.open_link.resolver.http.pattern":"http:%s",
+	"orgmode.open_link.resolver.http.url":"http:%s",
+	"orgmode.open_link.resolver.http.pattern":"^(http):(?P<url>.+)$",
 
 	//jira
 	"orgmode.open_link.resolver.jira.url":"http://sandbox.onjira.com/browse/%s",
