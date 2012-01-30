@@ -84,7 +84,21 @@ orgmode for Sublime Text 2
   * Theme additions for proper syntax highlighting
     See {{Theme additions for proper syntax highlighting}} under {{Attachments}} below for details.
 
-* Todo [0/19]
+* Todo [8/27]
+  - [X] HelpIt integrated, alt+f1 looks up th eword on google.
+  - [X] redmine, [[redmine:9726]], [[issue:9726]], [[#9726]]
+  - [X] local file not working well for windows
+      - [X] åäö problems
+  - [X] open cmd line at "[[cmd:c:\dev]]"
+        - [[cmd:c:\dev\]]
+        - [[prompt:c:\dev\apps]]
+  - [X] http resolver, make urls with '#'' work
+      - [[http://www.sublimetext.com/forum/viewtopic.php?f=5&t=1838&p=18483#p18483]]
+      - [X] https is not working, [[https://www.google.com/]]
+          -https resolver..
+  - [X] navigation history
+  - [X] src refactor, moved settings to Global.sublime-settings
+  - [X] added default theme in orgmode dir.
   - [ ] External link opener on pressing enter [2/3]
     - [X] on OSX
     - [ ] on Linux
@@ -113,6 +127,7 @@ orgmode for Sublime Text 2
   - [ ] Pressing return on a TODO chain shall set it to DONE
   - [ ] ASCII tables.
   - [ ] Code remark collector. Recursively scans a specified folder for files with given filename pattern for code remarks and shows them as a list. Should be realized with begin and end markers to support later update on pressing enter on either marker.
+
 
 * Known Issues
   - When creating an empty checkbox summary and hitting an checkbox below the cursor will be placed a little bit to the left. Seems like the selection is being rebuilt incorrectly due to the added chars for the summary.
