@@ -1,0 +1,29 @@
+{
+   "cocoa" : {
+      "url" : "http://www.google.com/search?btnI=1&q=site:developer.apple.com+%s"
+   },
+   "objc" : {
+      "url" : "http://www.google.com/search?btnI=1&q=site:developer.apple.com+%s"
+   },
+   "java" : {
+      "url" : "http://www.google.com/search?btnI=1&q=site:docs.oracle.com+javadoc+%s"
+   },
+   "python" : {
+      "url" : "http://docs.python.org/search.html?q=%s"
+   },
+   "php" : {
+      "url" : "http://php.net/%s"
+   },
+   "less" : {
+      "map" : "css"
+   },
+   "js" : {
+      "sub" : [{
+         "contains" : "$",
+         "url" : "http://api.jquery.com/%s",
+         "remove" : "\\$.*\\."
+      }]   
+   },
+   "html" : "http://www.google.com/search?btnI=1&q=site:w3schools.com/html5+tag+%s",
+   "plain": "http://answers.com/%s"
+}
