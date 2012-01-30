@@ -7,6 +7,7 @@ forked from https://bitbucket.org/theblacklion/sublime_orgmode/
 
 
 Stuff that have been added
+
 	[X] HelpIt integrated, alt+f1 looks up th eword on google.
 	[X] redmine, [[redmine:9726]], [[issue:9726]], [[#9726]]
 	[X] local file not working well for windows
