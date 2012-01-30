@@ -18,5 +18,8 @@
     { "keys": ["alt+right"], "command": "navigation_history_forward"},
 
     //open_recently_closed_file
-    { "keys": ["ctrl+shift+t"], "command": "open_recently_closed_file", "args": {"show_quick_panel": false}}
+    { "keys": ["ctrl+shift+t"], "command": "open_recently_closed_file", "args": {"show_quick_panel": false}},
+
+    //help_it
+    { "keys": ["alt+f1"], "command": "help_it" }
 ]

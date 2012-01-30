@@ -1,8 +1,9 @@
-#Plugin inspired and modified from http://www.sublimetext.com/forum/viewtopic.php?f=5&t=2242
 '''
-
-keys;
-    { "keys": ["alt+f1"], "command": "help_it" }
+    Integrated from http://www.sublimetext.com/forum/viewtopic.php?f=5&t=2674
+    Plugin inspired and modified from http://www.sublimetext.com/forum/viewtopic.php?f=5&t=2242
+    
+    keys;
+        { "keys": ["alt+f1"], "command": "help_it" }
 '''
 import sublime
 import sublime_plugin

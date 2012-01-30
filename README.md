@@ -7,9 +7,7 @@ forked from https://bitbucket.org/theblacklion/sublime_orgmode/
 
 
 Stuff that have been added
-
-	[X] src refactor, moved settings to Global.sublime-settings
-	[X] added default theme in orgmode dir.
+	[X] HelpIt integrated, alt+f1 looks up th eword on google.
 	[X] redmine, [[redmine:9726]], [[issue:9726]], [[#9726]]
 	[X] local file not working well for windows
 	      [X] åäö problems
@@ -23,4 +21,6 @@ Stuff that have been added
 	        -https resolver..
 
 	[X] navigation history
+	[X] src refactor, moved settings to Global.sublime-settings
+	[X] added default theme in orgmode dir.
 
