@@ -14,6 +14,7 @@ import sublime_plugin
 
 DEFAULT_OPEN_LINK_RESOLVERS = [
     'http',
+    'https',
     'prompt',
     'redmine',
     'jira',
