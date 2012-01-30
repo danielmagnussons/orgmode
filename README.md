@@ -6,11 +6,10 @@ handles .org files.
 HOWTO
 =============
 
-cd c:\Users\USER\AppData\Roaming\Sublime Text 2\Packages\
-git clone git@github.com:danielmagnussons/orgmode.git
-restart sublime
-open c:\Users\USER\AppData\Roaming\Sublime Text 2\Packages\README.org in sublime
-
+	cd c:\Users\USER\AppData\Roaming\Sublime Text 2\Packages\
+	git clone git@github.com:danielmagnussons/orgmode.git
+	restart sublime
+	open c:\Users\USER\AppData\Roaming\Sublime Text 2\Packages\README.org in sublime
 
 
 Stuff that have been added
