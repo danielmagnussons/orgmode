@@ -25,9 +25,6 @@ DEFAULT_OPEN_HTTP_LINK_COMMANDS = dict(
     # Standard universal can opener for OSX.
     darwin=['open'],
     win32=['cmd', '/C'],
-
-    # Dunno yet - help anyone?
-    # linux= FIXME ???
 )
 
 
@@ -50,7 +47,7 @@ class Resolver(AbstractRegexLinkResolver):
             sublime.error_message('Could not get link opener command.\nNot yet supported.')
             return None
         
-        #TODSO: abit windows hacky here.
+        #TODO: abit windows hacky here.
         #works: cmd /c "start http://www.sublimetext.com/forum/viewtopic.php?f=5^&t=916"
         #cmd.exe quote is needed, http://ss64.com/nt/syntax-esc.html
         #escape these: ^\  ^&  ^|  ^>  ^<  ^^ 
