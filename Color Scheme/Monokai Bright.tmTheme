@@ -382,110 +382,113 @@
 				<string>#E6DB74</string>
 			</dict>
 		</dict>
-		 <dict>
-        <key>name</key>
-        <string>orgmode link</string>
-        <key>scope</key>
-        <string>orgmode.link</string>
-        <key>settings</key>
+		<dict>
+            <key>name</key>
+            <string>orgmode link</string>
+            <key>scope</key>
+            <string>orgmode.link</string>
+            <key>settings</key>
+            <dict>
+              <key>foreground</key>
+              <string>#FB9A4B</string>
+              <key>fontStyle</key>
+              <string>underline</string>
+           </dict>
+        </dict>
         <dict>
-          <key>foreground</key>
-          <string>#FB9A4B</string>
-          <key>fontStyle</key>
-          <string>underline</string>
-       </dict>
-    </dict>
-    <dict>
-        <key>name</key>
-        <string>orgmode page</string>
-        <key>scope</key>
-        <string>orgmode.page</string>
-        <key>settings</key>
+            <key>name</key>
+            <string>orgmode page</string>
+            <key>scope</key>
+            <string>orgmode.page</string>
+            <key>settings</key>
+            <dict>
+              <key>foreground</key>
+              <string>#FFFFAA</string>
+           </dict>
+        </dict>
         <dict>
-          <key>foreground</key>
-          <string>#FFFFAA</string>
-       </dict>
-    </dict>
-    <dict>
-        <key>name</key>
-        <string>orgmode break</string>
-        <key>scope</key>
-        <string>orgmode.break</string>
-        <key>settings</key>
+            <key>name</key>
+            <string>orgmode break</string>
+            <key>scope</key>
+            <string>orgmode.break</string>
+            <key>settings</key>
+            <dict>
+              <key>foreground</key>
+              <string>#FFAAAA</string>
+           </dict>
+        </dict>
         <dict>
-          <key>foreground</key>
-          <string>#FFAAAA</string>
-       </dict>
-    </dict>
-    <dict>
-        <key>name</key>
-        <string>orgmode headline</string>
-        <key>scope</key>
-        <string>orgmode.headline</string>
-        <key>settings</key>
+            <key>name</key>
+            <string>orgmode headline</string>
+            <key>scope</key>
+            <string>orgmode.headline</string>
+            <key>settings</key>
+            <dict>
+              <key>foreground</key>
+              <string>#9EFFFF</string>
+           </dict>
+        </dict>
         <dict>
-          <key>foreground</key>
-          <string>#9EFFFF</string>
-       </dict>
-    </dict>
-    <dict>
-        <key>name</key>
-        <string>orgmode tack</string>
-        <key>scope</key>
-        <string>orgmode.tack</string>
-        <key>settings</key>
+            <key>name</key>
+            <string>orgmode tack</string>
+            <key>scope</key>
+            <string>orgmode.tack</string>
+            <key>settings</key>
+            <dict>
+              <key>foreground</key>
+              <string>#FFFFAA</string>
+           </dict>
+        </dict>
         <dict>
-          <key>foreground</key>
-          <string>#FFFFAA</string>
-       </dict>
-    </dict>
-    <dict>
-        <key>name</key>
-        <string>orgmode follow up</string>
-        <key>scope</key>
-        <string>orgmode.follow_up</string>
-        <key>settings</key>
+            <key>name</key>
+            <string>orgmode follow up</string>
+            <key>scope</key>
+            <string>orgmode.follow_up</string>
+            <key>settings</key>
+            <dict>
+              <key>foreground</key>
+              <string>#FFFFAA</string>
+           </dict>
+        </dict>
         <dict>
-          <key>foreground</key>
-          <string>#FFFFAA</string>
-       </dict>
-    </dict>
-    <dict>
-        <key>name</key>
-        <string>orgmode checkbox</string>
-        <key>scope</key>
-        <string>orgmode.checkbox</string>
-        <key>settings</key>
+            <key>name</key>
+            <string>orgmode checkbox</string>
+            <key>scope</key>
+            <string>orgmode.checkbox</string>
+            <key>settings</key>
+            <dict>
+              <key>foreground</key>
+              <string>#FFFFAA</string>
+           </dict>
+        </dict>
         <dict>
-          <key>foreground</key>
-          <string>#FFFFAA</string>
-       </dict>
-    </dict>
-    <dict>
-        <key>name</key>
-        <string>orgmode checkbox summary</string>
-        <key>scope</key>
-        <string>orgmode.checkbox.summary</string>
-        <key>settings</key>
+            <key>name</key>
+            <string>orgmode checkbox summary</string>
+            <key>scope</key>
+            <string>orgmode.checkbox.summary</string>
+            <key>settings</key>
+            <dict>
+              <key>foreground</key>
+              <string>#FFFFAA</string>
+           </dict>
+        </dict>
         <dict>
-          <key>foreground</key>
-          <string>#FFFFAA</string>
-       </dict>
-    </dict>
-    <dict>
-        <key>name</key>
-        <string>orgmode tags</string>
-        <key>scope</key>
-        <string>orgmode.tags</string>
-        <key>settings</key>
-        <dict>
-          <key>foreground</key>
-          <string>#AAFFAA</string>
-       </dict>
-    </dict>
-
-	</array>
+            <key>name</key>
+            <string>orgmode tags</string>
+            <key>scope</key>
+            <string>orgmode.tags</string>
+            <key>settings</key>
+            <dict>
+              <key>foreground</key>
+              <string>#AAFFAA</string>
+           </dict>
+        </dict>
+    
+    </array>
 	<key>uuid</key>
 	<string>D8D5E82E-3D5B-46B5-B38E-8C841C21347E</string>
+       
 </dict>
+
+
 </plist>
