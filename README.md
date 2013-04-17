@@ -3,6 +3,9 @@ orgmode for sublime text editor
 
 handles .org files.
 
+Only tested on Windows 7. Any pull requests for Linux and OSX is welcome.
+
+
 HOWTO
 =============
 
@@ -10,6 +13,7 @@ HOWTO
 	git clone git@github.com:danielmagnussons/orgmode.git
 	restart sublime
 	open c:\Users\USER\AppData\Roaming\Sublime Text 2\Packages\README.org in sublime
+
 
 
 Stuff that have been added
