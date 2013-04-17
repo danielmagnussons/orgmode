@@ -1,7 +1,7 @@
-orgmode for sublime text editor
+Org mode for Sublime Text
 =============
 
-handles .org files.
+Handles .org files. Features supported is listed in README.org
 
 Only tested on Windows 7. Any pull requests for Linux and OSX is welcome.
 
@@ -16,7 +16,7 @@ HOWTO
 
 
 
-Stuff that have been added
+Features that have been added
 =============
 
 	[X] HelpIt integrated, alt+f1 looks up th eword on google.
@@ -37,7 +37,8 @@ Stuff that have been added
 	[X] added default theme in orgmode dir.
 
 
-MISC
+Other
 =============
 
 forked from https://bitbucket.org/theblacklion/sublime_orgmode/
+inspired by http://orgmode.org/

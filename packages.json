@@ -3,7 +3,7 @@
 	"packages": [
 		{
 			"name": "orgmode",
-			"description": "Organize your text files with pretty colors and functions",
+			"description": "Org mode is for keeping notes, maintaining TODO lists, planning projects, and authoring documents with a fast and effective plain-text system.",
 			"author": "danielmagnussons",
 			"homepage": "https://github.com/danielmagnussons/orgmode",
 			"last_modified": "2013-04-17 19:46:31",
