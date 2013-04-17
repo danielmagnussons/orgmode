@@ -38,7 +38,6 @@ class Resolver(AbstractLinkResolver):
             if fnmatch(basename, pattern):
                 print 'found in force_load_patterns'
                 return False
-        #danne  hack here
         return True
 
         folder_exclude_patterns = self.settings.get('folder_exclude_patterns')

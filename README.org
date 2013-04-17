@@ -79,7 +79,7 @@ orgmode for Sublime Text 2
     Clone or copy the contents into a Packages/orgmode folder.
 
   * Key bindings for interaction
-    See {{Key bindings for interaction}} under {{Attachments}} below for details.
+    See the file [[Default.sublime-keymap]] for details.
 
   * Theme additions for proper syntax highlighting
     See {{Theme additions for proper syntax highlighting}} under {{Attachments}} below for details.

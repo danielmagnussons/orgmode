@@ -62,7 +62,7 @@ class AbstractLinkResolver(object):
         content = content.encode(sys.getfilesystemencoding())
         cmd = command + [content]
         arg_list_wrapper = self.settings.get("orgmode.open_link.resolver.abstract.arg_list_wrapper", [])
-        if arg_list_wrapper:  # NOTE never use shell=True below.
+        if arg_list_wrapper: 
             cmd = arg_list_wrapper + [' '.join(cmd)]
             source_filename = '\"'+self.view.file_name()+'\"'
             cmd += [source_filename]

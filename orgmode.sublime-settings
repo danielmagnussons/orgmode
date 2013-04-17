@@ -6,8 +6,7 @@
     "auto_indent": true,
     "indent_subsequent_lines": true,
     "detect_indentation": false,
-    "line_numbers": false,
+    "line_numbers": true,
     "save_on_focus_lost": true,
-    //"rulers": [80],
     "gutter": true
 }
