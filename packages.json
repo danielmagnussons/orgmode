@@ -1,0 +1,20 @@
+{
+	"schema_version": "1.2",
+	"packages": [
+		{
+			"name": "orgmode",
+			"description": "Organize your text files with pretty colors and functions",
+			"author": "danielmagnussons",
+			"homepage": "https://github.com/danielmagnussons/orgmode",
+			"last_modified": "2013-04-17 19:46:31",
+			"platforms": {
+				"windows": [
+					{
+						"version": "1.1.0",
+						"url": "https://nodeload.github.com/danielmagnussons/orgmode/zip/v1.0"
+					}
+				]
+			}
+		}
+	]
+}
