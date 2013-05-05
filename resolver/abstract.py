@@ -29,7 +29,7 @@ DEFAULT_OPEN_LINK_COMMANDS = dict(
 class AbstractLinkResolver(object):
 
     def __init__(self, view):
-        super(AbstractLinkResolver, self).__init__()
+        #super(AbstractLinkResolver, self).__init__()
         self.view = view
         self.settings = sublime.load_settings('Global.sublime-settings')
         self.link_commands = self.settings.get('orgmode.open_link.resolver.abstract.commands', DEFAULT_OPEN_LINK_COMMANDS)
@@ -88,7 +88,10 @@ class AbstractLinkResolver(object):
 class AbstractRegexLinkResolver(AbstractLinkResolver):
 
     def __init__(self, view):
-        super(AbstractRegexLinkResolver, self).__init__(view)
+        self.view = view
+        self.settings = sublime.load_settings('Global.sublime-settings')
+        self.link_commands = self.settings.get('orgmode.open_link.resolver.abstract.commands', DEFAULT_OPEN_LINK_COMMANDS)
+        #super(AbstractRegexLinkResolver,self).__init__(view)
         self.regex = None
 
     def extract(self, content):
