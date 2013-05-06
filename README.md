@@ -1,7 +1,7 @@
 Org mode for Sublime Text
 =============
 
-Handles .org files. Features supported is listed in README.org
+Handles .org files. Supported features is listed in README.org
 
 Only **tested on Windows 7 and Ubuntu 12.04**. Any pull requests for OSX is welcome.
 
