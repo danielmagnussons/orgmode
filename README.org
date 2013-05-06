@@ -145,7 +145,7 @@ orgmode for Sublime Text 2
 * Attachments
 
   * Theme additions for proper syntax highlighting
-    Put the following into your color scheme (.tmTheme file):
+    If you are not using Monokai Bright.tmTheme, put the following into your color scheme (.tmTheme file):
 
     [code]
     <dict>
