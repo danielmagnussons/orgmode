@@ -11,13 +11,13 @@
 				"windows": [
 					{
 						"version": "1.1.0",
-						"url": "https://nodeload.github.com/danielmagnussons/orgmode/zip/v1.2"
+						"url": "https://nodeload.github.com/danielmagnussons/orgmode/zip/v1.3"
 					}
 				],
 				"linux": [
 					{
 						"version": "1.1.0",
-						"url": "https://nodeload.github.com/danielmagnussons/orgmode/zip/v1.2"
+						"url": "https://nodeload.github.com/danielmagnussons/orgmode/zip/v1.3"
 					}
 				]
 			}
