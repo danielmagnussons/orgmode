@@ -22,7 +22,7 @@ orgmode for Sublime Text 2
     - Checkboxes
     - Checkbox summaries
     - External links
-    - Inter document links. E.g. {1} {{Context sensitive actions}}
+    - Inter document links. E.g. {1} {{Context sensitive actions}} {{Todo}}
     - Code blocks
     - Python tracebacks
 

@@ -2,11 +2,10 @@ Org mode for Sublime Text
 =============
 
 Handles .org files. Features supported is listed in README.org
+Only tested on Windows 7 and Ubuntu 12.04. Any pull requests for OSX is welcome.
 
-Only tested on Windows 7. Any pull requests for Linux and OSX is welcome.
 
-
-HOWTO
+Howto Windows
 =============
 
 	cd c:\Users\USER\AppData\Roaming\Sublime Text 2\Packages\
@@ -15,30 +14,18 @@ HOWTO
 	open c:\Users\USER\AppData\Roaming\Sublime Text 2\Packages\README.org in sublime
 
 
-
-Features that have been added
+Features
 =============
+![Features](/images/screenshot1.png)
 
-	[X] HelpIt integrated, alt+f1 looks up th eword on google.
-	[X] redmine, [[redmine:9726]], [[issue:9726]], [[#9726]]
-	[X] local file not working well for windows
-	      [X] åäö problems
-	[X] open cmd line at "[[cmd:c:\dev]]"
-	      - [[cmd:c:\dev\]]
-	      - [[prompt:c:\dev\apps]]
 
-	[X] http resolver, make urls with # work
-	    - [[http://www.sublimetext.com/forum/viewtopic.php?f=5&t=1838&p=18483#p18483]]
-	    [X] https is not working, [[https://www.google.com/]]
-	        -https resolver..
-
-	[X] navigation history
-	[X] src refactor, moved settings to Global.sublime-settings
-	[X] added default theme in orgmode dir.
+Todo
+=============
+![Todo](/images/screenshot2.png)
 
 
 Other
 =============
 
-forked from https://bitbucket.org/theblacklion/sublime_orgmode/
-inspired by http://orgmode.org/
+* forked from https://bitbucket.org/theblacklion/sublime_orgmode/
+* inspired by http://orgmode.org/
