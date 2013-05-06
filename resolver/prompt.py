@@ -8,7 +8,6 @@ import re
 import sys
 import subprocess
 import sublime
-
 from abstract import AbstractRegexLinkResolver
 
 DEFAULT_OPEN_PROMPT_LINK_COMMANDS = dict(

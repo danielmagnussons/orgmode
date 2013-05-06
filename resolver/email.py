@@ -5,7 +5,6 @@ Settings in Global.sublime-settings are:
 '''
 
 import re
-
 from abstract import AbstractRegexLinkResolver
 
 
@@ -26,7 +25,6 @@ class Resolver(AbstractRegexLinkResolver):
 
     def replace(self, match):
         match = match.groupdict()
-        # print match
         if match['type'] == 'mailto':
             url = self.url % match['email']
             if match['subject']:
@@ -36,7 +34,7 @@ class Resolver(AbstractRegexLinkResolver):
             return dict(email=match['email'], path=match['subject'])
 
     def execute(self, content):
-        if type(content) is dict and 'email' in content:
+        if isinstance(content, dict) and 'email' in content:
             import sublime
             # TODO Implement email opener here.
             sublime.error_message('Email opener not implemented yet.')

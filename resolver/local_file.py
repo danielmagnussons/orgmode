@@ -7,9 +7,7 @@ Settings in Global.sublime-settings are:
 import re
 import os
 from fnmatch import fnmatch
-
 import sublime
-
 from abstract import AbstractLinkResolver
 
 
@@ -17,10 +15,12 @@ PATTERN_SETTING = 'orgmode.open_link.resolver.local_file.pattern'
 PATTERN_DEFAULT = r'^(?P<filepath>.+?)(?::(?P<row>\d+)(?::(?P<col>\d+))?)?$'
 
 FORCE_LOAD_SETTING = 'orgmode.open_link.resolver.local_file.force_into_sublime'
-FORCE_LOAD_DEFAULT = ['*.txt', '*.org', '*.py', '*.rb', '*.html', '*.css', '*.js', '*.php', '*.c', '*.cpp', '*.h']
+FORCE_LOAD_DEFAULT = ['*.txt', '*.org', '*.py', '*.rb',
+                      '*.html', '*.css', '*.js', '*.php', '*.c', '*.cpp', '*.h']
 
 
 class Resolver(AbstractLinkResolver):
+
     '''
     @todo: If the link is a local org-file open it directly via sublime, otherwise use OPEN_LINK_COMMAND.
     '''
@@ -55,11 +55,10 @@ class Resolver(AbstractLinkResolver):
         filepath = os.path.expandvars(filepath)
         filepath = os.path.expanduser(filepath)
 
-        # print filepath
         match = self.regex.match(filepath)
         if match:
-            filepath, row, col = match.group('filepath'), match.group('row'), match.group('col')
-            # print filepath, row, col
+            filepath, row, col = match.group(
+                'filepath'), match.group('row'), match.group('col')
         else:
             row = None
             col = None
@@ -70,15 +69,14 @@ class Resolver(AbstractLinkResolver):
             testfile = os.path.join(cwd, filepath)
             if os.path.exists(testfile):  # See if it exists here...
                 filepath = testfile
-        #danne  hack here
-        #filepath = ':'.join([drive, filepath]) if drive else filepath
+
         filepath = ''.join([drive, filepath]) if drive else filepath
-        print 'filepath: '+filepath
-        #danne  hack here
-        #if os.path.exists(filepath) and not self.file_is_excluded(filepath):
+        print 'filepath: ' + filepath
         if not self.file_is_excluded(filepath):
-            if row: filepath += ':%s' % row
-            if col: filepath += ':%s' % col
+            if row:
+                filepath += ':%s' % row
+            if col:
+                filepath += ':%s' % col
             print 'file_is_excluded'
             self.view.window().open_file(filepath, sublime.ENCODED_POSITION)
             return True

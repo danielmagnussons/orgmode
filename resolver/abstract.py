@@ -62,7 +62,7 @@ class AbstractLinkResolver(object):
             cmd += [source_filename]
             if sys.platform != 'win32':
                 cmd += ['--origin', source_filename, '--quiet']
-                
+
         print '*****'
         print repr(content), content
         print cmd

@@ -51,8 +51,9 @@ class OrgmodeOpenLinkCommand(sublime_plugin.TextCommand):
     def __init__(self, *args, **kwargs):
         super(OrgmodeOpenLinkCommand, self).__init__(*args, **kwargs)
         settings = sublime.load_settings('Global.sublime-settings')
-        wanted_resolvers = settings.get('orgmode.open_link.resolvers', DEFAULT_OPEN_LINK_RESOLVERS)
-        self.resolvers = [available_resolvers[name].Resolver(self.view) \
+        wanted_resolvers = settings.get(
+            'orgmode.open_link.resolvers', DEFAULT_OPEN_LINK_RESOLVERS)
+        self.resolvers = [available_resolvers[name].Resolver(self.view)
                           for name in wanted_resolvers]
 
     def resolve(self, content):
@@ -151,7 +152,7 @@ class AbstractCheckboxCommand(sublime_plugin.TextCommand):
         self.summary_regex = re.compile(summary_pattern)
 
     def get_indent(self, content):
-        if type(content) is sublime.Region:
+        if isinstance(content, sublime.Region):
             content = self.view.substr(content)
         match = self.indent_regex.match(content)
         indent = match.group(1)
@@ -261,9 +262,11 @@ class AbstractCheckboxCommand(sublime_plugin.TextCommand):
         children = self.find_siblings(view.line(child), parent)
         # print children
         num_children = len(children)
-        checked_children = len(filter(lambda child: '[X]' in child[1], children))
+        checked_children = len(filter(
+            lambda child: '[X]' in child[1], children))
         # print checked_children, num_children
-        view.replace(edit, summary, '[%d/%d]' % (checked_children, num_children))
+        view.replace(edit, summary, '[%d/%d]' % (
+            checked_children, num_children))
         return True
 
 

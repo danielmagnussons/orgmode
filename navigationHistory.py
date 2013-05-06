@@ -13,26 +13,29 @@ Put this in your "Packages" directory and then configure "Key bindings - User" t
 '''
 
 
-import sublime, sublime_plugin
+import sublime
+import sublime_plugin
 from collections import deque
 
 MAX_SIZE = 64
 LINE_THRESHOLD = 2
 
+
 class Location(object):
+
     """A location in the history
     """
     def __init__(self, path, line, col):
         self.path = path
         self.line = line
         self.col = col
-    
+
     def __eq__(self, other):
         return self.path == other.path and self.line == other.line
-    
+
     def __ne__(self, other):
         return not self.__eq__(other)
-    
+
     def __nonzero__(self):
         return (self.path is not None and self.line is not None)
 
@@ -42,7 +45,9 @@ class Location(object):
     def copy(self):
         return Location(self.path, self.line, self.col)
 
+
 class History(object):
+
     """Keep track of the history for a single window
     """
 
@@ -50,10 +55,10 @@ class History(object):
         self._current = None                # current location as far as the
                                             # history is concerned
         self._back = deque([], max_size)    # items before self._current
-        self._forward = deque([], max_size) # items after self._current
-        
+        self._forward = deque([], max_size)  # items after self._current
+
         self._last_movement = None          # last recorded movement
-    
+
     def record_movement(self, location):
         """Record movement to the given location, pushing history if
         applicable
@@ -69,14 +74,14 @@ class History(object):
         to do a has_changed() check.
         """
         self._last_movement = location.copy()
-    
+
     def has_changed(self, location):
         """Determine if the given location combination represents a
         significant enough change to warrant pushing history.
         """
 
         return self._last_movement is None or not self._last_movement.near(location)
-    
+
     def push(self, location):
         """Push the given location to the back history. Clear the forward
         history.
@@ -94,10 +99,10 @@ class History(object):
 
         if not self._back:
             return None
-        
+
         self._forward.appendleft(self._current)
         self._current = self._back.pop()
-        self._last_movement = self._current # preempt, so we don't re-push
+        self._last_movement = self._current  # preempt, so we don't re-push
         return self._current
 
     def forward(self):
@@ -107,13 +112,14 @@ class History(object):
 
         if not self._forward:
             return None
-        
+
         self._back.append(self._current)
         self._current = self._forward.popleft()
-        self._last_movement = self._current # preempt, so we don't re-push
+        self._last_movement = self._current  # preempt, so we don't re-push
         return self._current
 
-_histories = {} # window id -> History
+_histories = {}  # window id -> History
+
 
 def get_history():
     """Get a History object for the current window,
@@ -130,7 +136,9 @@ def get_history():
         _histories[window_id] = history = History()
     return history
 
+
 class NavigationHistoryRecorder(sublime_plugin.EventListener):
+
     """Keep track of history
     """
 
@@ -145,14 +153,14 @@ class NavigationHistoryRecorder(sublime_plugin.EventListener):
         path = view.file_name()
         row, col = view.rowcol(view.sel()[0].a)
         history.record_movement(Location(path, row + 1, col + 1))
-    
+
     # def on_close(self, view):
     #     """When a view is closed, check to see if the window was closed too
     #     and clean up orphan histories
     #     """
     #
-    #     # XXX: This doesn't work - event runs before window is removed
-    #     # from sublime.windows()
+    # XXX: This doesn't work - event runs before window is removed
+    # from sublime.windows()
     #
     #     windows_with_history = set(_histories.keys())
     #     window_ids = set([w.id() for w in sublime.windows()])
@@ -160,7 +168,9 @@ class NavigationHistoryRecorder(sublime_plugin.EventListener):
     #     for window_id in closed_windows:
     #         del _histories[window_id]
 
+
 class NavigationHistoryBack(sublime_plugin.TextCommand):
+
     """Go back in history
     """
 
@@ -172,9 +182,12 @@ class NavigationHistoryBack(sublime_plugin.TextCommand):
         location = history.back()
         if location:
             window = sublime.active_window()
-            window.open_file("%s:%d:%d" % (location.path, location.line, location.col), sublime.ENCODED_POSITION)
+            window.open_file("%s:%d:%d" % (
+                location.path, location.line, location.col), sublime.ENCODED_POSITION)
+
 
 class NavigationHistoryForward(sublime_plugin.TextCommand):
+
     """Go forward in history
     """
 
@@ -186,4 +199,5 @@ class NavigationHistoryForward(sublime_plugin.TextCommand):
         location = history.forward()
         if location:
             window = sublime.active_window()
-            window.open_file("%s:%d:%d" % (location.path, location.line, location.col), sublime.ENCODED_POSITION)
+            window.open_file("%s:%d:%d" % (
+                location.path, location.line, location.col), sublime.ENCODED_POSITION)

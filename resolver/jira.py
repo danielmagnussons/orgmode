@@ -5,7 +5,6 @@ Settings in Global.sublime-settings are:
 '''
 
 import re
-
 from abstract import AbstractRegexLinkResolver
 
 
