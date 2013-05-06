@@ -84,11 +84,12 @@ orgmode for Sublime Text 2
   * Theme additions for proper syntax highlighting
     See {{Theme additions for proper syntax highlighting}} under {{Attachments}} below for details.
 
-* Todo [8/27]
+* Todo [10/28]
   - [X] HelpIt integrated, alt+f1 looks up th eword on google.
   - [X] redmine, [[redmine:9726]], [[issue:9726]], [[#9726]]
   - [X] local file not working well for windows
       - [X] åäö problems
+  - [X] linux open cmd line at "[[cmd:/home]]"
   - [X] open cmd line at "[[cmd:c:\dev]]"
         - [[cmd:c:\dev\]]
         - [[prompt:c:\dev\apps]]
@@ -99,9 +100,9 @@ orgmode for Sublime Text 2
   - [X] navigation history
   - [X] src refactor, moved settings to Global.sublime-settings
   - [X] added default theme in orgmode dir.
-  - [ ] External link opener on pressing enter [2/3]
+  - [X] External link opener on pressing enter [3/3]
     - [X] on OSX
-    - [ ] on Linux
+    - [X] on Linux
     - [X] on Windows
   - [ ] When (un-)checking *all* checkboxes of siblings, toggle parent checkbox.
   - [ ] Either make highlight_code_remarks.py configurable thru view settings so that orgmode can control its regex patterns or fork/extend it to archive an equal goal.
