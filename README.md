@@ -1,4 +1,4 @@
-Org mode for Sublime Text
+orgmode for Sublime Text
 =============
 
 Handles .org files. Supported features is listed in README.org

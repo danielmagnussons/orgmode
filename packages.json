@@ -3,7 +3,7 @@
 	"packages": [
 		{
 			"name": "orgmode",
-			"description": "Org mode is for keeping notes, maintaining TODO lists, planning projects, and authoring documents with a fast and effective plain-text system.",
+			"description": "orgmode is for keeping notes, maintaining TODO lists, planning projects, and authoring documents with a fast and effective plain-text system.",
 			"author": "danielmagnussons",
 			"homepage": "https://github.com/danielmagnussons/orgmode",
 			"last_modified": "2013-05-07 19:46:31",
@@ -11,13 +11,13 @@
 				"windows": [
 					{
 						"version": "1.1.0",
-						"url": "https://nodeload.github.com/danielmagnussons/orgmode/zip/v1.4"
+						"url": "https://nodeload.github.com/danielmagnussons/orgmode/zip/v1.5"
 					}
 				],
 				"linux": [
 					{
 						"version": "1.1.0",
-						"url": "https://nodeload.github.com/danielmagnussons/orgmode/zip/v1.4"
+						"url": "https://nodeload.github.com/danielmagnussons/orgmode/zip/v1.5"
 					}
 				]
 			}

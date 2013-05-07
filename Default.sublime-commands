@@ -1,0 +1,16 @@
+[
+    {
+        "caption": "Preferences: orgmode Settings – Default",
+        "command": "open_file",
+        "args": {
+            "file": "${packages}/orgmode/orgmode.sublime-settings"
+        }
+    },
+    {
+        "caption": "Preferences: orgmode Settings – User",
+        "command": "open_file",
+        "args": {
+            "file": "${packages}/User/orgmode.sublime-settings"
+        }
+    }
+]

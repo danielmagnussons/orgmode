@@ -6,11 +6,11 @@
         "children": [
             {
                 "mnemonic": "P", 
-                "caption": "Org mode Settings", 
+                "caption": "orgmode Settings", 
                 "id": "package-settings", 
                 "children": [
                     {
-                        "caption": "Org mode", 
+                        "caption": "orgmode", 
                         "children": [
                             {
                                 "caption": "Settings – Default", 
