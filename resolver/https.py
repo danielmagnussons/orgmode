@@ -1,8 +1,3 @@
-'''
-Settings in Global.sublime-settings are:
-- orgmode.open_link.resolver.http.pattern: See PATTERN_DEFAULT.
-- orgmode.open_link.resolver.http.url: See URL_DEFAULT.
-'''
 
 import re
 import urllib

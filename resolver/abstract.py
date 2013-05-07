@@ -1,10 +1,4 @@
 # -*- coding: utf-8 -*-
-'''
-Settings in Global.sublime-settings are:
-- orgmode.open_link.resolver.abstract.commands: See DEFAULT_OPEN_LINK_COMMANDS.
-- orgmode.open_link.resolver.abstract.arg_list_wrapper: Optional wrapper for e.g. virtualenv.
-'''
-
 import sys
 import subprocess
 import sublime
@@ -22,7 +16,7 @@ class AbstractLinkResolver(object):
 
     def __init__(self, view):
         self.view = view
-        self.settings = sublime.load_settings('Global.sublime-settings')
+        self.settings = sublime.load_settings('orgmode.sublime-settings')
         self.link_commands = self.settings.get(
             'orgmode.open_link.resolver.abstract.commands', DEFAULT_OPEN_LINK_COMMANDS)
 
@@ -88,7 +82,7 @@ class AbstractRegexLinkResolver(AbstractLinkResolver):
 
     def __init__(self, view):
         self.view = view
-        self.settings = sublime.load_settings('Global.sublime-settings')
+        self.settings = sublime.load_settings('orgmode.sublime-settings')
         self.link_commands = self.settings.get(
             'orgmode.open_link.resolver.abstract.commands', DEFAULT_OPEN_LINK_COMMANDS)
         self.regex = None

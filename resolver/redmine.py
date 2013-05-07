@@ -1,8 +1,3 @@
-'''
-Settings in Global.sublime-settings are:
-- orgmode.open_link.resolver.redmine.pattern: See PATTERN_DEFAULT.
-- orgmode.open_link.resolver.redmine.url: See URL_DEFAULT.
-'''
 
 import re
 from abstract import AbstractRegexLinkResolver

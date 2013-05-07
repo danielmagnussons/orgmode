@@ -19,7 +19,7 @@ class helpItCommand(sublime_plugin.TextCommand):
 
     def run(self, edit):
         if len(self.view.file_name()) > 0:
-            settings = sublime.load_settings('HelpIt.sublime-settings')
+            settings = sublime.load_settings('orgmode.sublime-settings')
             item = None
             word = self.view.substr(self.view.word(self.view.sel()[0].begin()))
             scope = self.view.scope_name(self.view.sel()[0].begin()).strip()

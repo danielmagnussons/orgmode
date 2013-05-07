@@ -1,8 +1,3 @@
-'''
-Settings in Global.sublime-settings are:
-- orgmode.open_link.resolver.fisheye.pattern: See PATTERN_DEFAULT.
-- orgmode.open_link.resolver.fisheye.url: See URL_DEFAULT.
-'''
 
 import re
 from abstract import AbstractRegexLinkResolver

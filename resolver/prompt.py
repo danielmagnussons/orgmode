@@ -1,8 +1,3 @@
-'''
-Settings in Global.sublime-settings are:
-- orgmode.open_link.resolver.prompt.pattern: See PATTERN_DEFAULT.
-- orgmode.open_link.resolver.prompt.path: See PROMPT_DEFAULT.
-'''
 
 import re
 import sys

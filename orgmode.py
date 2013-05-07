@@ -1,5 +1,5 @@
 '''
-Settings in Global.sublime-settings are:
+Settings in orgmode.sublime-settings are:
 - orgmode.open_link.resolvers: See DEFAULT_OPEN_LINK_RESOLVERS.
 - orgmode.open_link.resolver.abstract.commands: See DEFAULT_OPEN_LINK_COMMANDS in resolver.abstract.
 For more settings see headers of specific resolvers.
@@ -50,7 +50,7 @@ class OrgmodeOpenLinkCommand(sublime_plugin.TextCommand):
 
     def __init__(self, *args, **kwargs):
         super(OrgmodeOpenLinkCommand, self).__init__(*args, **kwargs)
-        settings = sublime.load_settings('Global.sublime-settings')
+        settings = sublime.load_settings('orgmode.sublime-settings')
         wanted_resolvers = settings.get(
             'orgmode.open_link.resolvers', DEFAULT_OPEN_LINK_RESOLVERS)
         self.resolvers = [available_resolvers[name].Resolver(self.view)

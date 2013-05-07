@@ -1,8 +1,3 @@
-'''
-Settings in Global.sublime-settings are:
-- orgmode.open_link.resolver.crucible.pattern: See PATTERN_DEFAULT.
-- orgmode.open_link.resolver.crucible.url: See URL_DEFAULT.
-'''
 
 import re
 from abstract import AbstractRegexLinkResolver

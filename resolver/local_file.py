@@ -1,8 +1,3 @@
-'''
-Settings in Global.sublime-settings are:
-- orgmode.open_link.resolver.local_file.pattern: See PATTERN_DEFAULT.
-- orgmode.open_link.resolver.local_file.force_into_sublime: See FORCE_LOAD_DEFAULT.
-'''
 
 import re
 import os

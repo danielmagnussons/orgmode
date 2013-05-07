@@ -1,6 +1,7 @@
 {
+    // Global
     "color_scheme": "Packages/orgmode/Color Scheme/Monokai Bright.tmTheme",
-	"word_wrap": true,
+    "word_wrap": true,
     "translate_tabs_to_spaces": true,
     "tab_size": 2,
     "auto_indent": true,
@@ -8,5 +9,73 @@
     "detect_indentation": false,
     "line_numbers": true,
     "save_on_focus_lost": true,
-    "gutter": true
+    "gutter": true,
+
+
+    //orgmode resolvers
+
+    //jira
+    "orgmode.open_link.resolver.jira.url":"http://sandbox.onjira.com/browsedaniel/%s",
+    "orgmode.open_link.resolver.jira.pattern":"^(jira|j):(?P<issue>.+)$",
+
+    //redmine
+    "orgmode.open_link.resolver.redmine.url":"http://google.org/issuesdaniel/%s",
+    "orgmode.open_link.resolver.redmine.pattern":"^(issue:|redmine:|#)(?P<issue>.+)$",
+
+    //crucible
+    "orgmode.open_link.resolver.crucible.url":"http://sandbox.fisheye.atlassian.com/cru/%s",
+    "orgmode.open_link.resolver.crucible.pattern":"^(crucible|cru|cr):(?P<review>.+)$",
+
+    //email
+    "orgmode.open_link.resolver.email.url":"mailto:%s",
+    "orgmode.open_link.resolver.email.pattern":"^(?P<type>email|mailto):(?P<email>[^/]+)(/(?P<subject>.+))?$",
+
+    //fisheye
+    "orgmode.open_link.resolver.fisheye.url":"http://sandbox.fisheye.atlassian.com/changelog/%s",
+    "orgmode.open_link.resolver.fisheye.pattern":"^(fisheye|fish|fe):(?P<repo>[^/]+)(/(?P<rev>.+))?$",
+
+    //TODO: delete these?
+    //prompt
+    "orgmode.open_link.resolver.prompt.path":"start cmd.exe /K \"cd /d %s\"",
+    "orgmode.open_link.resolver.prompt.pattern":"^(cmd:|prompt:)(?P<path>.+)$",
+
+    //local_file
+    "orgmode.open_link.resolver.local_file.force_into_sublime":"'*.txt', '*.org', '*.py', '*.rb', '*.html', '*.css', '*.js', '*.php', '*.c', '*.cpp', '*.h'",
+    "orgmode.open_link.resolver.local_file.pattern":"^(?P<filepath>.+?)(?::(?P<row>\\d+)(?::(?P<col>\\d+))?)?$",
+
+    //http
+    "orgmode.open_link.resolver.http.url":"http:%s",
+    "orgmode.open_link.resolver.http.pattern":"^(http):(?P<url>.+)$",
+
+
+
+
+    // HelpIt
+    "cocoa" : {
+      "url" : "http://www.google.com/search?btnI=1&q=site:developer.apple.com+%s"
+    },
+    "objc" : {
+      "url" : "http://www.google.com/search?btnI=1&q=site:developer.apple.com+%s"
+    },
+    "java" : {
+      "url" : "http://www.google.com/search?btnI=1&q=site:docs.oracle.com+javadoc+%s"
+    },
+    "python" : {
+      "url" : "http://docs.python.org/search.html?q=%s"
+    },
+    "php" : {
+      "url" : "http://php.net/%s"
+    },
+    "less" : {
+      "map" : "css"
+    },
+    "js" : {
+      "sub" : [{
+         "contains" : "$",
+         "url" : "http://api.jquery.com/%s",
+         "remove" : "\\$.*\\."
+      }]   
+    },
+    "html" : "http://www.google.com/search?btnI=1&q=site:w3schools.com/html5+tag+%s",
+    "plain": "http://answers.com/%s"
 }
