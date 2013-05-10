@@ -13,6 +13,13 @@
                         "caption": "orgmode", 
                         "children": [
                             {
+                                "caption": "Readme.org", 
+                                "args": {
+                                    "file": "${packages}/orgmode/README.org"
+                                }, 
+                                "command": "open_file"
+                            }, 
+                            {
                                 "caption": "Settings – Default", 
                                 "args": {
                                     "file": "${packages}/orgmode/orgmode.sublime-settings"
