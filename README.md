@@ -3,7 +3,7 @@ orgmode for Sublime Text
 
 Handles .org files. Supported features is listed in README.org
 
-Only **tested on Windows 7 and Ubuntu 12.04**. Any pull requests for OSX is welcome.
+Tested **on Windows 7 and Ubuntu 12.04 and Mac OS X 10.7.5**.
 
 
 Features
