@@ -1,12 +1,12 @@
 
 import sys
 import re
-import urllib
+import urllib.request, urllib.parse, urllib.error
 import sys
 import subprocess
 import sublime
 
-from abstract import AbstractRegexLinkResolver
+from .abstract import AbstractRegexLinkResolver
 
 PATTERN_SETTING = 'orgmode.open_link.resolver.http.pattern'
 PATTERN_DEFAULT = r'^(http):(?P<url>.+)$'
@@ -59,10 +59,10 @@ class Resolver(AbstractRegexLinkResolver):
         else:
             cmd = command + ['start ' + content]
 
-        print 'HTTP*****'
-        print repr(content), content
-        print repr(cmd)
-        print cmd
+        print('HTTP*****')
+        print(repr(content), content)
+        print(repr(cmd))
+        print(cmd)
         sublime.status_message('Executing: %s' % cmd)
         if sys.platform != 'win32':
             process = subprocess.Popen(
@@ -73,8 +73,8 @@ class Resolver(AbstractRegexLinkResolver):
 
         stdout, stderr = process.communicate()
         if stdout:
-            stdout = unicode(stdout, sys.getfilesystemencoding())
+            stdout = str(stdout, sys.getfilesystemencoding())
             sublime.status_message(stdout)
         if stderr:
-            stderr = unicode(stderr, sys.getfilesystemencoding())
+            stderr = str(stderr, sys.getfilesystemencoding())
             sublime.error_message(stderr)

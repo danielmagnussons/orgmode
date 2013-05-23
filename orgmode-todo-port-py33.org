@@ -1,0 +1,7 @@
+
+~ TODO 
+[ ] make key triggers work
+[ ] make theme work
+[ ] tmLangugage not working
+[X] not crash on start
+[X] import modules py3.3 style

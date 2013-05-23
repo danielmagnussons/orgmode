@@ -36,7 +36,7 @@ class Location(object):
     def __ne__(self, other):
         return not self.__eq__(other)
 
-    def __nonzero__(self):
+    def __bool__(self):
         return (self.path is not None and self.line is not None)
 
     def near(self, other):

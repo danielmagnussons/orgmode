@@ -1,6 +1,6 @@
 
 import re
-from abstract import AbstractRegexLinkResolver
+from .abstract import AbstractRegexLinkResolver
 
 
 PATTERN_SETTING = 'orgmode.open_link.resolver.email.pattern'

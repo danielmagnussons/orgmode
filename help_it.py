@@ -38,9 +38,9 @@ class helpItCommand(sublime_plugin.TextCommand):
 
             # Map languages if needed. For example: Map .less files to .css
             # searches
-            print 'language: ' + language
+            print('language: ' + language)
             if settings.get(language) is not None:
-                print 'lang found in settings: ' + language
+                print('lang found in settings: ' + language)
                 item = settings.get(language)
                 if 'map' in item:
                     language = item['map']
@@ -71,7 +71,7 @@ class helpItCommand(sublime_plugin.TextCommand):
                                     break
 
                     if not custom:
-                        if isinstance(item, unicode):
+                        if isinstance(item, str):
                             search = item
                             custom = True
                         elif 'url' in item:
@@ -83,9 +83,9 @@ class helpItCommand(sublime_plugin.TextCommand):
 
                 try:
                     search = search % (term)
-                    print search
+                    print(search)
                 except TypeError:
-                    print "No replacements"
+                    print("No replacements")
 
                 webbrowser.open_new_tab(search)
         else:

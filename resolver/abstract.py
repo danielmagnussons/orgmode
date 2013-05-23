@@ -34,7 +34,7 @@ class AbstractLinkResolver(object):
 
     def get_link_command(self):
         platform = sys.platform
-        for key, val in self.link_commands.iteritems():
+        for key, val in self.link_commands.items():
             if key in platform:
                 return val
         return None
@@ -57,9 +57,9 @@ class AbstractLinkResolver(object):
             if sys.platform != 'win32':
                 cmd += ['--origin', source_filename, '--quiet']
 
-        print '*****'
-        print repr(content), content
-        print cmd
+        print('*****')
+        print(repr(content), content)
+        print(cmd)
         sublime.status_message('Executing: %s' % cmd)
 
         if sys.platform != 'win32':
@@ -71,10 +71,10 @@ class AbstractLinkResolver(object):
 
         stdout, stderr = process.communicate()
         if stdout:
-            stdout = unicode(stdout, sys.getfilesystemencoding())
+            stdout = str(stdout, sys.getfilesystemencoding())
             sublime.status_message(stdout)
         if stderr:
-            stderr = unicode(stderr, sys.getfilesystemencoding())
+            stderr = str(stderr, sys.getfilesystemencoding())
             sublime.error_message(stderr)
 
 

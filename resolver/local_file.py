@@ -3,7 +3,7 @@ import re
 import os
 from fnmatch import fnmatch
 import sublime
-from abstract import AbstractLinkResolver
+from .abstract import AbstractLinkResolver
 
 
 PATTERN_SETTING = 'orgmode.open_link.resolver.local_file.pattern'
@@ -31,18 +31,18 @@ class Resolver(AbstractLinkResolver):
         basename = os.path.basename(filepath)
         for pattern in self.force_load_patterns:
             if fnmatch(basename, pattern):
-                print 'found in force_load_patterns'
+                print('found in force_load_patterns')
                 return False
         return True
 
         folder_exclude_patterns = self.settings.get('folder_exclude_patterns')
         if basename in folder_exclude_patterns:
-            print 'found in folder_exclude_patterns'
+            print('found in folder_exclude_patterns')
             return True
         file_exclude_patterns = self.settings.get('file_exclude_patterns')
         for pattern in file_exclude_patterns:
             if fnmatch(basename, pattern):
-                print 'found in file_exclude_patterns'
+                print('found in file_exclude_patterns')
                 return True
         return False
 
@@ -66,13 +66,13 @@ class Resolver(AbstractLinkResolver):
                 filepath = testfile
 
         filepath = ''.join([drive, filepath]) if drive else filepath
-        print 'filepath: ' + filepath
+        print('filepath: ' + filepath)
         if not self.file_is_excluded(filepath):
             if row:
                 filepath += ':%s' % row
             if col:
                 filepath += ':%s' % col
-            print 'file_is_excluded'
+            print('file_is_excluded')
             self.view.window().open_file(filepath, sublime.ENCODED_POSITION)
             return True
 
@@ -84,5 +84,5 @@ class Resolver(AbstractLinkResolver):
 
     def execute(self, content):
         if content is not True:
-            print 'normal open'
+            print('normal open')
             return super(Resolver, self).execute(content)

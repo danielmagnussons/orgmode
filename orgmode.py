@@ -10,7 +10,9 @@ import re
 import os.path
 import sublime
 import sublime_plugin
+import fnmatch
 
+import importlib
 
 DEFAULT_OPEN_LINK_RESOLVERS = [
     'http',
@@ -25,25 +27,29 @@ DEFAULT_OPEN_LINK_RESOLVERS = [
 ]
 
 
+class OrgmodeNewTaskDocCommand(sublime_plugin.WindowCommand):
+    def run(self):
+        view = self.window.new_file()
+        view.set_syntax_file('Packages/orgmode/orgmode.tmLanguage')
+
+
 def find_resolvers():
     from os.path import splitext
-    from glob import glob
-    path = 'resolver'
-    files = glob('%s/*.py' % path)
-    available_resolvers = dict()
-    for pos, file_ in enumerate(files[:]):
-        name = os.path.splitext(file_)[0]
-        patharr = name.split(os.path.sep)
-        module, name = '.'.join(patharr), patharr[-1:]
-        module = __import__(module, globals(), locals(), name)
-        module = reload(module)
-        if '__init__' in file_ or 'abstract' in file_:
-            continue
-        name = name[0]
-        # print name, module
-        available_resolvers[name] = module
+    base = os.path.dirname(os.path.abspath(__file__))
+    path = base+'/resolver'
+    available_resolvers = {}
+    for root, dirnames, filenames in os.walk(base+'/resolver'):
+        for filename in fnmatch.filter(filenames, '*.py'):
+            patharr = filename.split('.')
+            module, name = '.'.join(patharr), patharr[-1:]
+            module_path = 'orgmode.resolver.'+filename.split('.')[0]
+            print(module_path)
+            module = importlib.import_module(module_path)
+            if '__init__' in filename or 'abstract' in filename:
+                continue
+            available_resolvers[filename.split('.')[0]] = module
     return available_resolvers
-available_resolvers = find_resolvers()
+
 
 
 class OrgmodeOpenLinkCommand(sublime_plugin.TextCommand):
@@ -53,8 +59,11 @@ class OrgmodeOpenLinkCommand(sublime_plugin.TextCommand):
         settings = sublime.load_settings('orgmode.sublime-settings')
         wanted_resolvers = settings.get(
             'orgmode.open_link.resolvers', DEFAULT_OPEN_LINK_RESOLVERS)
+        print(wanted_resolvers)
+        available_resolvers = find_resolvers()
+        print(available_resolvers)
         self.resolvers = [available_resolvers[name].Resolver(self.view)
-                          for name in wanted_resolvers]
+                           for name in wanted_resolvers]
 
     def resolve(self, content):
         for resolver in self.resolvers:
@@ -262,8 +271,7 @@ class AbstractCheckboxCommand(sublime_plugin.TextCommand):
         children = self.find_siblings(view.line(child), parent)
         # print children
         num_children = len(children)
-        checked_children = len(filter(
-            lambda child: '[X]' in child[1], children))
+        checked_children = len([child for child in children if '[X]' in child[1]])
         # print checked_children, num_children
         view.replace(edit, summary, '[%d/%d]' % (
             checked_children, num_children))

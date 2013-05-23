@@ -3,7 +3,7 @@ import re
 import sys
 import subprocess
 import sublime
-from abstract import AbstractRegexLinkResolver
+from .abstract import AbstractRegexLinkResolver
 
 DEFAULT_OPEN_PROMPT_LINK_COMMANDS = dict(
     darwin=['open'],
@@ -38,7 +38,7 @@ class Resolver(AbstractRegexLinkResolver):
 
     def get_link_command(self):
         platform = sys.platform
-        for key, val in self.link_commands.iteritems():
+        for key, val in self.link_commands.items():
             if key in platform:
                 return val
         return None
@@ -57,9 +57,9 @@ class Resolver(AbstractRegexLinkResolver):
         else:
             cmd = 'cmd /C start cmd.exe /K "cd /d '+content+'"'
 
-        print 'PROMPT*****'
-        print repr(content)
-        print cmd
+        print('PROMPT*****')
+        print(repr(content))
+        print(cmd)
         # \"cd /d c:\dev\apps\"' is not recognized as an internal or external command,
         sublime.status_message('Executing: %s' % cmd)
         if sys.platform != 'win32':
@@ -71,8 +71,8 @@ class Resolver(AbstractRegexLinkResolver):
 
         stdout, stderr = process.communicate()
         if stdout:
-            stdout = unicode(stdout, sys.getfilesystemencoding())
+            stdout = str(stdout, sys.getfilesystemencoding())
             sublime.status_message(stdout)
         if stderr:
-            stderr = unicode(stderr, sys.getfilesystemencoding())
+            stderr = str(stderr, sys.getfilesystemencoding())
             sublime.error_message(stderr)
