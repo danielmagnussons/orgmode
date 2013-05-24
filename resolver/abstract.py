@@ -46,7 +46,9 @@ class AbstractLinkResolver(object):
                 'Could not get link opener command.\nPlatform not yet supported.')
             return None
 
-        content = content.encode(sys.getfilesystemencoding())
+        if sys.version_info[0] < 3:
+            content = content.encode(sys.getfilesystemencoding())
+
         cmd = command + [content]
         arg_list_wrapper = self.settings.get(
             "orgmode.open_link.resolver.abstract.arg_list_wrapper", [])

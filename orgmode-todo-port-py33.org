@@ -1,7 +1,11 @@
 
 ~ TODO 
+[ ] test mac, win, linux
 [ ] merge into sub2 branch, test both versions
-[ ] test all resolvers
+[X] [[mailto:daniel@testtest.se]]
+[X] support [[http://github.com]], [[https://github.com]]
+[X] support [[cmd:c:\dev]]
+[X] test all resolvers
 [X] make key triggers work
 [X] make theme work
 [X] tmLangugage not working

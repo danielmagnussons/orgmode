@@ -50,7 +50,8 @@ class Resolver(AbstractRegexLinkResolver):
                 'Could not get link opener command.\nNot yet supported.')
             return None
 
-        content = content.encode(sys.getfilesystemencoding())
+        if sys.version_info[0] < 3:
+            content = content.encode(sys.getfilesystemencoding())
 
         if sys.platform != 'win32':
             cmd = command + [content]
