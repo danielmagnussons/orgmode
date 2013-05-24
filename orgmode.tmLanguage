@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
 	<key>fileTypes</key>
 	<array>
 		<string>org</string>
+		<string>tasks</string>
 	</array>
 	<key>keyEquivalent</key>
 	<string>^~P</string>
@@ -109,35 +110,7 @@
 			</array>
 		</dict>
 	</array>
-	<key>repository</key>
-	<dict>
-		<key>python_exception.reference</key>
-		<dict>
-			<key>name</key>
-			<string>reference orgmode.python.traceback</string>
-			<key>match</key>
-			"^[ ]*File \"(...*?)\", line ([0-9]*)",
-			<string>File "(.+)", line (\d+), in (.*)$</string>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>filepath</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>line</string>
-				</dict>
-				<key>3</key>
-				<dict>
-					<key>name</key>
-					<string>function</string>
-				</dict>
-			</dict>
-		</dict>
-	</dict>
+
 	<key>scopeName</key>
 	<string>text.orgmode</string>
 	<key>uuid</key>
