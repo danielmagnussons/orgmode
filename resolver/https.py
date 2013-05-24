@@ -1,10 +1,15 @@
 
 import re
-import urllib.request, urllib.parse, urllib.error
 import sys
 import subprocess
 import sublime
 from .abstract import AbstractRegexLinkResolver
+
+try:
+    import urllib.request, urllib.parse, urllib.error
+except ImportError:
+    import urllib
+
 
 PATTERN_SETTING = 'orgmode.open_link.resolver.https.pattern'
 PATTERN_DEFAULT = r'^(https):(?P<url>.+)$'

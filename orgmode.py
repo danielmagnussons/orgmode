@@ -12,7 +12,12 @@ import sublime
 import sublime_plugin
 import fnmatch
 
-import importlib
+
+try:
+    import importlib
+except ImportError:
+    pass
+
 
 DEFAULT_OPEN_LINK_RESOLVERS = [
     'http',
@@ -32,7 +37,6 @@ class OrgmodeNewTaskDocCommand(sublime_plugin.WindowCommand):
         view = self.window.new_file()
         view.set_syntax_file('Packages/orgmode/orgmode.tmLanguage')
 
-
 def find_resolvers():
     from os.path import splitext
     base = os.path.dirname(os.path.abspath(__file__))
@@ -40,16 +44,19 @@ def find_resolvers():
     available_resolvers = {}
     for root, dirnames, filenames in os.walk(base+'/resolver'):
         for filename in fnmatch.filter(filenames, '*.py'):
-            patharr = filename.split('.')
-            module, name = '.'.join(patharr), patharr[-1:]
             module_path = 'orgmode.resolver.'+filename.split('.')[0]
-            print(module_path)
-            module = importlib.import_module(module_path)
+            if sys.version_info[0] < 3:
+                module_path = 'resolver.'+filename.split('.')[0]
+                name = filename.split('.')[0]
+                module = __import__(module_path, globals(), locals(), name)
+                module = reload(module)
+            else:
+                module = importlib.import_module(module_path)
             if '__init__' in filename or 'abstract' in filename:
                 continue
             available_resolvers[filename.split('.')[0]] = module
     return available_resolvers
-
+available_resolvers = find_resolvers()
 
 
 class OrgmodeOpenLinkCommand(sublime_plugin.TextCommand):
@@ -60,7 +67,6 @@ class OrgmodeOpenLinkCommand(sublime_plugin.TextCommand):
         wanted_resolvers = settings.get(
             'orgmode.open_link.resolvers', DEFAULT_OPEN_LINK_RESOLVERS)
         print(wanted_resolvers)
-        available_resolvers = find_resolvers()
         print(available_resolvers)
         self.resolvers = [available_resolvers[name].Resolver(self.view)
                            for name in wanted_resolvers]
