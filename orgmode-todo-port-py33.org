@@ -1,9 +1,9 @@
 
-~ TODO 
-[ ] test 
-  [ ] mac, 
+~ TODO port to sublime3
+[X] test 
+  [X] mac, 
   [X] win, 
-  [ ] linux
+  [X] linux
 [X] merge into sub2 branch, test both versions
 [X] [[mailto:daniel@testtest.se]]
 [X] support [[http://github.com]], [[https://github.com]]
