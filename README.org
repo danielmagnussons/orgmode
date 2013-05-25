@@ -84,7 +84,24 @@ orgmode for Sublime Text 2
   * Theme additions for proper syntax highlighting
     See {{Theme additions for proper syntax highlighting}} under {{Attachments}} below for details.
 
-* Todo [10/28]
+* Todo [12/30]
+  - [X] Autocomplete for inserting current date, write "date" => 2013-05-25 18:53
+    - [X] configure in settings
+  - [X] Port to Sublime Text 3
+    - [X] test 
+      - [X] mac, 
+      - [X] win, 
+      - [X] linux
+    - [X] merge into sub2 branch, test both versions
+    - [X] [[mailto:daniel@testtest.se]]
+    - [X] support [[http://github.com]], [[https://github.com]]
+    - [X] support [[cmd:c:\dev]]
+    - [X] test all resolvers
+    - [X] make key triggers work
+    - [X] make theme work
+    - [X] tmLangugage not working
+    - [X] not crash on start
+    - [X] import modules py3.3 style
   - [X] HelpIt integrated, alt+f1 looks up th eword on google.
   - [X] redmine, [[redmine:9726]], [[issue:9726]], [[#9726]]
   - [X] local file not working well for windows
