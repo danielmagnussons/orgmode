@@ -1,11 +1,9 @@
-orgmode for Sublime Text
+orgmode for Sublime Text 2 & 3
 =============
 
 Handles .org files. Supported features is listed in README.org
 
-Tested **on Windows 7 and Ubuntu 12.04 and Mac OS X 10.7.5**.
-
-Tested with sublime 2 and sublime 3
+Tested **on Windows 7 and Ubuntu 12.04 and Mac OS X 10.7.5** with Sublime Text 2 & 3
 
 
 Features
@@ -19,18 +17,17 @@ Todo
 More Todo in Sublime Text 2/Packages/README.org
 
 
-Howto Windows
+How to install
 =============
-
-	cd c:\Users\USER\AppData\Roaming\Sublime Text 2\Packages\
+	
+	cd .../Sublime Text 2/Packages/
 	git clone git@github.com:danielmagnussons/orgmode.git
 	restart sublime
-	open c:\Users\USER\AppData\Roaming\Sublime Text 2\Packages\README.org in sublime
-
+	open .../Sublime Text 2/Packages/README.org
 
 
 Other
 =============
 
-* forked from https://bitbucket.org/theblacklion/sublime_orgmode/
-* inspired by http://orgmode.org/
+* Forked from https://bitbucket.org/theblacklion/sublime_orgmode/
+* Inspired by http://orgmode.org/
