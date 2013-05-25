@@ -5,6 +5,8 @@ Handles .org files. Supported features is listed in README.org
 
 Tested **on Windows 7 and Ubuntu 12.04 and Mac OS X 10.7.5**.
 
+Tested with sublime 2 and sublime 3
+
 
 Features
 =============
