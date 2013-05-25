@@ -11,6 +11,7 @@ import os.path
 import sublime
 import sublime_plugin
 import fnmatch
+import datetime
 
 
 try:
@@ -66,8 +67,6 @@ class OrgmodeOpenLinkCommand(sublime_plugin.TextCommand):
         settings = sublime.load_settings('orgmode.sublime-settings')
         wanted_resolvers = settings.get(
             'orgmode.open_link.resolvers', DEFAULT_OPEN_LINK_RESOLVERS)
-        print(wanted_resolvers)
-        print(available_resolvers)
         self.resolvers = [available_resolvers[name].Resolver(self.view)
                            for name in wanted_resolvers]
 
@@ -374,3 +373,18 @@ class OrgmodeLinkCompletions(sublime_plugin.EventListener):
         if not files:
             return [(base + '/', base)]
         return files
+
+
+class OrgmodeDateCompleter(sublime_plugin.EventListener):
+
+    def on_query_completions(self, view, prefix, locations):
+        self.settings = sublime.load_settings('orgmode.sublime-settings')
+        self.date_format = self.settings.get(
+            'orgmode.autocomplete.date', "%Y-%m-%d %H:%M")
+        self.date_format_cmd = self.settings.get(
+            'orgmode.autocomplete.date.cmd', "date")
+
+        return [
+            (self.date_format_cmd, datetime.datetime.now().strftime(self.date_format)),
+            ("week", str(datetime.datetime.now().isocalendar()[1])),
+        ]

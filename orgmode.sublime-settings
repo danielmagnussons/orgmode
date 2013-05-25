@@ -11,9 +11,12 @@
     "save_on_focus_lost": true,
     "gutter": true,
 
-
+    // autocomplete of "date" will insert current date with format
+    "orgmode.autocomplete.date.cmd":"date",
+    "orgmode.autocomplete.date":"%Y-%m-%d %H:%M",
+    
+    
     //orgmode resolvers
-
     //jira
     "orgmode.open_link.resolver.jira.url":"http://sandbox.onjira.com/browse/%s",
     "orgmode.open_link.resolver.jira.pattern":"^(jira|j):(?P<issue>.+)$",
