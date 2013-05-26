@@ -32,7 +32,7 @@ class Resolver(AbstractRegexLinkResolver):
             self.url = get(PROMPT_SETTING, PROMPT_DEFAULT_WIN32)
         else:
             self.url = get(PROMPT_SETTING, PROMPT_DEFAULT_LINUX)
-
+ 
     def replace(self, match):
         return self.url % match.group('path')
 
