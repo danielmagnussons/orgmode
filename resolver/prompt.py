@@ -28,11 +28,11 @@ class Resolver(AbstractRegexLinkResolver):
             'orgmode.open_link.resolver.abstract.commands', DEFAULT_OPEN_PROMPT_LINK_COMMANDS)
         pattern = get(PATTERN_SETTING, PATTERN_DEFAULT)
         self.regex = re.compile(pattern)
-        if sys.platform == 'win32':
+        if sys.platform == 'win32' or sys.platform == 'darwin':
             self.url = get(PROMPT_SETTING, PROMPT_DEFAULT_WIN32)
         else:
             self.url = get(PROMPT_SETTING, PROMPT_DEFAULT_LINUX)
-
+ 
     def replace(self, match):
         return self.url % match.group('path')
 
