@@ -6,7 +6,7 @@ import sublime
 from .abstract import AbstractRegexLinkResolver
 
 DEFAULT_OPEN_PROMPT_LINK_COMMANDS = dict(
-    darwin=['open'],
+    darwin=['open', '-a', 'Terminal'],
     win32=['cmd'],
     linux=['gnome-terminal'],
 )
