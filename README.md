@@ -28,11 +28,11 @@ How to install
 
 Install with Package Control
 =============
-	* Package Control : Add Repository
-	* Add: https://github.com/danielmagnussons
-	* Package Control : Install Package
-	* Search for "orgmode"
-	* Restart Sublime
+	Package Control : Add Repository
+	Add: https://github.com/danielmagnussons
+	Package Control : Install Package
+	Search for "orgmode"
+	Restart Sublime
 
 
 Other
