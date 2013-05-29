@@ -29,7 +29,7 @@ How to install
 Install with Package Control
 =============
 	Package Control : Add Repository
-	Add: https://github.com/danielmagnussons
+	Add: https://github.com/danielmagnussons/orgmode
 	Package Control : Install Package
 	Search for "orgmode"
 	Restart Sublime
