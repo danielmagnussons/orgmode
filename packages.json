@@ -10,20 +10,20 @@
 			"platforms": {
 				"windows": [
 					{
-						"version": "1.6.0",
-						"url": "https://nodeload.github.com/danielmagnussons/orgmode/zip/v1.6"
+						"version": "1.7.0",
+						"url": "https://nodeload.github.com/danielmagnussons/orgmode/zip/v1.7"
 					}
 				],
 				"linux": [
 					{
-						"version": "1.6.0",
+						"version": "1.7.0",
 						"url": "https://nodeload.github.com/danielmagnussons/orgmode/zip/v1.6"
 					}
 				],
 				"osx": [
 					{
-						"version": "1.6.0",
-						"url": "https://nodeload.github.com/danielmagnussons/orgmode/zip/v1.6"
+						"version": "1.7.0",
+						"url": "https://nodeload.github.com/danielmagnussons/orgmode/zip/v1.7"
 					}
 				]
 			}
