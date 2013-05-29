@@ -26,6 +26,15 @@ How to install
 	open .../Sublime Text 2/Packages/README.org
 
 
+Install with Package Control
+=============
+	* Package Control : Add Repository
+	* Add: https://github.com/danielmagnussons
+	* Package Control : Install Package
+	* Search for "orgmode"
+	* Restart Sublime
+
+
 Other
 =============
 
