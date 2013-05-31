@@ -17,22 +17,21 @@ Todo
 More Todo in Sublime Text 2/Packages/README.org
 
 
-How to install
+Install with Package Control
+=============
+
+	Package Control : Install Package
+	Search for "orgmode"
+	Restart Sublime
+
+
+Manual install
 =============
 	
 	cd .../Sublime Text 2/Packages/
 	git clone git@github.com:danielmagnussons/orgmode.git
 	restart sublime
 	open .../Sublime Text 2/Packages/README.org
-
-
-Install with Package Control
-=============
-	Package Control : Add Repository
-	Add: https://github.com/danielmagnussons/orgmode
-	Package Control : Install Package
-	Search for "orgmode"
-	Restart Sublime
 
 
 Other
