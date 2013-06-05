@@ -1,9 +1,9 @@
 
-orgmode for Sublime Text 2
+orgmode for Sublime Text 2 & 3
 ==========================
 
-* About
-  My shot on bringing Org-Mode {3} to Sublime Text 2 {4}. This project {1} is still in very early development. Nobody knows what will come next :). This won't be a simple copycat of the original one. I want to "port" useful things in a way that works best for Sublime Text 2. So there may be things that aren't in either version or just behave more or less differently.
+* After Install
+  Apply orgmode syntax, ctrl+shift+p , then search for orgmode. This document will be colored.
 
 * Features
   Here's a list of all the features implemented so far:
@@ -73,16 +73,6 @@ orgmode for Sublime Text 2
     - Checkbox checked: "cc"
     - Checkbox summary: "cs"
 
-* Installation
-
-  * Codebase
-    Clone or copy the contents into a Packages/orgmode folder.
-
-  * Key bindings for interaction
-    See the file [[Default.sublime-keymap]] for details.
-
-  * Theme additions for proper syntax highlighting
-    See {{Theme additions for proper syntax highlighting}} under {{Attachments}} below for details.
 
 * Todo [12/30]
   - [X] Autocomplete for inserting current date, write "date" => 2013-05-25 18:53
@@ -148,18 +138,17 @@ orgmode for Sublime Text 2
 
 
 * Known Issues
-  - When creating an empty checkbox summary and hitting an checkbox below the cursor will be placed a little bit to the left. Seems like the selection is being rebuilt incorrectly due to the added chars for the summary.
   - Subsequent indent of wrapped paragraphs don't respect stars, tacks, checkboxes, follow ups etc..
     -> [[http://sublimetext.userecho.com/feedback/26943-/]]
   - Update of checkbox summary should only see children who start with either an asterisk, tack or checkbox. Other things like external links or follow ups should be ignored.
 
 * External links
-  {1} Homepage [[https://bitbucket.org/theblacklion/sublime_orgmode/]]
-  {2} Issue tracker [[https://bitbucket.org/theblacklion/sublime_orgmode/issues?status=new&status=open]]
+  {1} Homepage [[https://github.com/danielmagnussons/orgmode]]
+  {2} Issue tracker [[https://github.com/danielmagnussons/orgmode/issues?state=open]]
   {3} Sublime Text 2 [[http://www.sublimetext.com/2]]
   {4} Org-Mode for Emacs [[http://orgmode.org/]]
 
-* Attachments
+* Optional Attachments
 
   * Theme additions for proper syntax highlighting
     If you are not using Monokai Bright.tmTheme, put the following into your color scheme (.tmTheme file):

@@ -15,7 +15,7 @@
                             {
                                 "caption": "Readme.org", 
                                 "args": {
-                                    "file": "${packages}/orgmode/README.org"
+                                    "file": "${packages}/orgmode/messages/install.org"
                                 }, 
                                 "command": "open_file"
                             }, 
