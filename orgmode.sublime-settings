@@ -1,6 +1,6 @@
 {
     // Global
-    "color_scheme": "Packages/orgmode/orgmode.tmTheme",
+    "color_scheme": "Packages/orgmode/Color Scheme/orgmode.tmTheme",
     "word_wrap": true,
     "translate_tabs_to_spaces": true,
     "tab_size": 2,

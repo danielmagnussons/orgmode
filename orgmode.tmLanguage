@@ -74,15 +74,45 @@
 			<string>\{\{(.+?)\}\}</string>
 		</dict>
 		<dict>
+			<key>contentName</key>
+			<string>text source</string>
+			<key>begin</key>
+			<string>\[code\]\s*</string>
+			<key>end</key>
+			<string>\s*\[/code\]</string>
+			<key>patterns</key>
+			<array>
+ 				<dict>
+					<key>include</key>
+					<string>#python_exception.reference</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
 			<key>name</key>
 			<string>orgmode.tags</string>
 			<key>match</key>
 			<string>(^|\s):[\w\d:]+:</string>
 		</dict>
+		<dict>
+			<key>name</key>
+			<string>orgmode.python.traceback</string>
+			<key>begin</key>
+			<string>^\s*Traceback \(most recent call last\):\s*$</string>
+			<key>end</key>
+			<string>^\s*\w+: .+$</string>
+			<key>patterns</key>
+			<array>
+ 				<dict>
+					<key>include</key>
+					<string>#python_exception.reference</string>
+				</dict>
+			</array>
+		</dict>
 	</array>
 
 	<key>scopeName</key>
-	<string>text.org</string>
+	<string>text.orgmode</string>
 	<key>uuid</key>
 	<string>D0287542-2284-452C-8648-B885B3E16B6F</string>
 </dict>
