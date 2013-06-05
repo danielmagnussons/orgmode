@@ -74,40 +74,10 @@
 			<string>\{\{(.+?)\}\}</string>
 		</dict>
 		<dict>
-			<key>contentName</key>
-			<string>text source</string>
-			<key>begin</key>
-			<string>\[code\]\s*</string>
-			<key>end</key>
-			<string>\s*\[/code\]</string>
-			<key>patterns</key>
-			<array>
- 				<dict>
-					<key>include</key>
-					<string>#python_exception.reference</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
 			<key>name</key>
 			<string>orgmode.tags</string>
 			<key>match</key>
 			<string>(^|\s):[\w\d:]+:</string>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>orgmode.python.traceback</string>
-			<key>begin</key>
-			<string>^\s*Traceback \(most recent call last\):\s*$</string>
-			<key>end</key>
-			<string>^\s*\w+: .+$</string>
-			<key>patterns</key>
-			<array>
- 				<dict>
-					<key>include</key>
-					<string>#python_exception.reference</string>
-				</dict>
-			</array>
 		</dict>
 	</array>
 
