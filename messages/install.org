@@ -1,7 +1,4 @@
 
-orgmode for Sublime Text 2 & 3
-==========================
-
 * After Install
   Apply orgmode syntax, ctrl+shift+p , then search for orgmode. This document will be colored.
 
