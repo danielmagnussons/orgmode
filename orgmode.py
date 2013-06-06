@@ -34,20 +34,22 @@ DEFAULT_OPEN_LINK_RESOLVERS = [
 
 
 class OrgmodeNewTaskDocCommand(sublime_plugin.WindowCommand):
+
     def run(self):
         view = self.window.new_file()
         view.set_syntax_file('Packages/orgmode/orgmode.tmLanguage')
 
+
 def find_resolvers():
     from os.path import splitext
     base = os.path.dirname(os.path.abspath(__file__))
-    path = base+'/resolver'
+    path = base + '/resolver'
     available_resolvers = {}
-    for root, dirnames, filenames in os.walk(base+'/resolver'):
+    for root, dirnames, filenames in os.walk(base + '/resolver'):
         for filename in fnmatch.filter(filenames, '*.py'):
-            module_path = 'orgmode.resolver.'+filename.split('.')[0]
+            module_path = 'orgmode.resolver.' + filename.split('.')[0]
             if sys.version_info[0] < 3:
-                module_path = 'resolver.'+filename.split('.')[0]
+                module_path = 'resolver.' + filename.split('.')[0]
                 name = filename.split('.')[0]
                 module = __import__(module_path, globals(), locals(), name)
                 module = reload(module)
@@ -68,7 +70,7 @@ class OrgmodeOpenLinkCommand(sublime_plugin.TextCommand):
         wanted_resolvers = settings.get(
             'orgmode.open_link.resolvers', DEFAULT_OPEN_LINK_RESOLVERS)
         self.resolvers = [available_resolvers[name].Resolver(self.view)
-                           for name in wanted_resolvers]
+                          for name in wanted_resolvers]
 
     def resolve(self, content):
         for resolver in self.resolvers:
@@ -298,12 +300,13 @@ class AbstractCheckboxCommand(sublime_plugin.TextCommand):
             return (0, 0)
         # print children
         num_children = len(children)
-        checked_children = len([child for child in children if self.is_checked(child)])
+        checked_children = len(
+            [child for child in children if self.is_checked(child)])
         # print checked_children, num_children
         return (num_children, checked_children)
 
     def update_line(self, edit, region):
-        #print 'update_line', self.view.rowcol(region.begin())[0]+1
+        # print 'update_line', self.view.rowcol(region.begin())[0]+1
         (num_children, checked_children) = self.recalc_summary(region)
         if not num_children > 0:
             return False
@@ -321,7 +324,7 @@ class AbstractCheckboxCommand(sublime_plugin.TextCommand):
         return True
 
     def update_summary(self, edit, region, checked_children, num_children):
-        #print 'update_summary', self.view.rowcol(region.begin())[0]+1
+        # print 'update_summary', self.view.rowcol(region.begin())[0]+1
         view = self.view
         summary = self.get_summary(region)
         if not summary:
@@ -329,8 +332,8 @@ class AbstractCheckboxCommand(sublime_plugin.TextCommand):
         view.replace(edit, summary, '[%d/%d]' % (
             checked_children, num_children))
 
-    def toggle_checkbox(self, edit, region, checked=None, recurseUp=False, recurseDown=False):
-        #print 'toggle_checkbox', self.view.rowcol(region.begin())[0]+1
+    def toggle_checkbox(self, edit, region, checked=None, recurse_up=False, recurse_down=False):
+        # print 'toggle_checkbox', self.view.rowcol(region.begin())[0]+1
         view = self.view
         checkbox = self.get_checkbox(region)
         if not checkbox:
@@ -340,12 +343,12 @@ class AbstractCheckboxCommand(sublime_plugin.TextCommand):
             checked = not self.is_checked(checkbox)
         view.replace(edit, checkbox, '[%s]' % (
             'X' if checked else ' '))
-        if recurseDown:
+        if recurse_down:
             # all children should follow
             children = self.find_children(region)
             for child in children:
-                self.toggle_checkbox(edit, child, checked, recurseDown=True)
-        if recurseUp:
+                self.toggle_checkbox(edit, child, checked, recurse_down=True)
+        if recurse_up:
             # update parent
             parent = self.find_parent(region)
             if parent:
@@ -363,7 +366,7 @@ class OrgmodeToggleCheckboxCommand(AbstractCheckboxCommand):
             backup.append(sel)
             checkbox = view.extract_scope(sel.end())
             line = view.line(checkbox)
-            self.toggle_checkbox(edit, line, recurseUp=True, recurseDown=True)
+            self.toggle_checkbox(edit, line, recurse_up=True, recurse_down=True)
         view.sel().clear()
         for region in backup:
             view.sel().add(region)
@@ -445,6 +448,7 @@ class OrgmodeDateCompleter(sublime_plugin.EventListener):
             'orgmode.autocomplete.date.cmd', "date")
 
         return [
-            (self.date_format_cmd, datetime.datetime.now().strftime(self.date_format)),
+            (self.date_format_cmd, datetime.datetime.now().strftime(
+                self.date_format)),
             ("week", str(datetime.datetime.now().isocalendar()[1])),
         ]

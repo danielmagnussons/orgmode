@@ -70,8 +70,7 @@
     - Checkbox checked: "cc"
     - Checkbox summary: "cs"
 
-
-* Todo [12/30]
+* Todo [13/30]
   - [X] Autocomplete for inserting current date, write "date" => 2013-05-25 18:53
     - [X] configure in settings
   - [X] Port to Sublime Text 3
@@ -108,7 +107,7 @@
     - [X] on OSX
     - [X] on Linux
     - [X] on Windows
-  - [ ] When (un-)checking *all* checkboxes of siblings, toggle parent checkbox.
+  - [X] When (un-)checking *all* checkboxes of siblings, toggle parent checkbox.
   - [ ] Either make highlight_code_remarks.py configurable thru view settings so that orgmode can control its regex patterns or fork/extend it to archive an equal goal.
   - [ ] Export into formatted text file [0/1]
     - [ ] Format: Markdown
