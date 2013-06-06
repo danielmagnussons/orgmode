@@ -162,8 +162,10 @@ class AbstractCheckboxCommand(sublime_plugin.TextCommand):
         super(AbstractCheckboxCommand, self).__init__(*args, **kwargs)
         indent_pattern = r'^(\s*).*$'
         summary_pattern = r'(\[\d*[/]\d*\])'
+        checkbox_pattern = r'(\[[X ]\])'
         self.indent_regex = re.compile(indent_pattern)
         self.summary_regex = re.compile(summary_pattern)
+        self.checkbox_regex = re.compile(checkbox_pattern)
 
     def get_indent(self, content):
         if isinstance(content, sublime.Region):
@@ -178,7 +180,7 @@ class AbstractCheckboxCommand(sublime_plugin.TextCommand):
         line = view.line(region)
         content = view.substr(line)
         # print content
-        indent = self.get_indent(content)
+        indent = len(self.get_indent(content))
         # print repr(indent)
         row -= 1
         found = False
@@ -187,8 +189,8 @@ class AbstractCheckboxCommand(sublime_plugin.TextCommand):
             line = view.line(point)
             content = view.substr(line)
             if len(content.strip()):
-                cur_indent = self.get_indent(content)
-                if len(cur_indent) < len(indent):
+                cur_indent = len(self.get_indent(content))
+                if cur_indent < indent:
                     found = True
                     break
             row -= 1
@@ -198,32 +200,34 @@ class AbstractCheckboxCommand(sublime_plugin.TextCommand):
             line = view.line(point)
             return line
 
-    def find_child(self, region):
+    def find_children(self, region):
         view = self.view
         row, col = view.rowcol(region.begin())
         line = view.line(region)
         content = view.substr(line)
         # print content
-        indent = self.get_indent(content)
+        indent = len(self.get_indent(content))
         # print repr(indent)
         row += 1
-        found = False
+        child_indent = None
+        children = []
         last_row, _ = view.rowcol(view.size())
         while row <= last_row:
             point = view.text_point(row, 0)
             line = view.line(point)
             content = view.substr(line)
-            if len(content.strip()):
-                cur_indent = self.get_indent(content)
-                if len(cur_indent) > len(indent):
-                    found = True
+            if self.checkbox_regex.search(content):
+                cur_indent = len(self.get_indent(content))
+                # check for end of descendants
+                if cur_indent <= indent:
                     break
+                # only immediate children
+                if child_indent is None:
+                    child_indent = cur_indent
+                if cur_indent == child_indent:
+                    children.append(line)
             row += 1
-        if found:
-            # print row
-            point = view.text_point(row, 0)
-            line = view.line(point)
-            return line
+        return children
 
     def find_siblings(self, child, parent):
         view = self.view
@@ -267,20 +271,85 @@ class AbstractCheckboxCommand(sublime_plugin.TextCommand):
             view.text_point(row, col_stop),
         )
 
-    def recalc_summary(self, edit, parent, child):
+    def get_checkbox(self, line):
         view = self.view
-        # print parent, child
-        summary = self.get_summary(parent)
-        if not summary:
-            return False
-        children = self.find_siblings(view.line(child), parent)
+        row, _ = view.rowcol(line.begin())
+        content = view.substr(line)
+        # print content
+        match = self.checkbox_regex.search(content)
+        if not match:
+            return None
+        # checkbox = match.group(1)
+        # print repr(checkbox)
+        # print dir(match), match.start(), match.span()
+        col_start, col_stop = match.span()
+        return sublime.Region(
+            view.text_point(row, col_start),
+            view.text_point(row, col_stop),
+        )
+
+    def is_checked(self, line):
+        return '[X]' in self.view.substr(line)
+
+    def recalc_summary(self, region):
+        # print region
+        children = self.find_children(region)
+        if not len(children) > 0:
+            return (0, 0)
         # print children
         num_children = len(children)
-        checked_children = len([child for child in children if '[X]' in child[1]])
+        checked_children = len([child for child in children if self.is_checked(child)])
         # print checked_children, num_children
+        return (num_children, checked_children)
+
+    def update_line(self, edit, region):
+        #print 'update_line', self.view.rowcol(region.begin())[0]+1
+        (num_children, checked_children) = self.recalc_summary(region)
+        if not num_children > 0:
+            return False
+        # update region checkbox
+        if checked_children == num_children:
+            self.toggle_checkbox(edit, region, True)
+        else:
+            self.toggle_checkbox(edit, region, False)
+        # update region summary
+        self.update_summary(edit, region, checked_children, num_children)
+        # update parent
+        parent = self.find_parent(region)
+        if parent:
+            self.update_line(edit, parent)
+        return True
+
+    def update_summary(self, edit, region, checked_children, num_children):
+        #print 'update_summary', self.view.rowcol(region.begin())[0]+1
+        view = self.view
+        summary = self.get_summary(region)
+        if not summary:
+            return False
         view.replace(edit, summary, '[%d/%d]' % (
             checked_children, num_children))
-        return True
+
+    def toggle_checkbox(self, edit, region, checked=None, recurseUp=False, recurseDown=False):
+        #print 'toggle_checkbox', self.view.rowcol(region.begin())[0]+1
+        view = self.view
+        checkbox = self.get_checkbox(region)
+        if not checkbox:
+            return False
+        # if checked is not specified, toggle checkbox
+        if checked is None:
+            checked = not self.is_checked(checkbox)
+        view.replace(edit, checkbox, '[%s]' % (
+            'X' if checked else ' '))
+        if recurseDown:
+            # all children should follow
+            children = self.find_children(region)
+            for child in children:
+                self.toggle_checkbox(edit, child, checked, recurseDown=True)
+        if recurseUp:
+            # update parent
+            parent = self.find_parent(region)
+            if parent:
+                self.update_line(edit, parent)
 
 
 class OrgmodeToggleCheckboxCommand(AbstractCheckboxCommand):
@@ -292,16 +361,9 @@ class OrgmodeToggleCheckboxCommand(AbstractCheckboxCommand):
             if 'orgmode.checkbox' not in view.scope_name(sel.end()):
                 continue
             backup.append(sel)
-            child = view.extract_scope(sel.end())
-            content = view.substr(child)
-            if '[X]' in content:
-                content = content.replace('[X]', '[ ]')
-            elif '[ ]' in content:
-                content = content.replace('[ ]', '[X]')
-            view.replace(edit, child, content)
-            parent = self.find_parent(child)
-            if parent:
-                self.recalc_summary(edit, parent, child)
+            checkbox = view.extract_scope(sel.end())
+            line = view.line(checkbox)
+            self.toggle_checkbox(edit, line, recurseUp=True, recurseDown=True)
         view.sel().clear()
         for region in backup:
             view.sel().add(region)
@@ -317,10 +379,8 @@ class OrgmodeRecalcCheckboxSummaryCommand(AbstractCheckboxCommand):
                 continue
             backup.append(sel)
             summary = view.extract_scope(sel.end())
-            parent = view.line(summary)
-            child = self.find_child(parent)
-            if child:
-                self.recalc_summary(edit, parent, child)
+            line = view.line(summary)
+            self.update_line(edit, line)
         view.sel().clear()
         for region in backup:
             view.sel().add(region)
