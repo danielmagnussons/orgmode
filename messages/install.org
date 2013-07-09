@@ -1,4 +1,3 @@
-
 * After Install
   Apply orgmode syntax, ctrl+shift+p , then search for orgmode. This document will be colored.
 
@@ -11,7 +10,7 @@
       --- This is a page marker ---
     - Breaks. E.g.:
       ~ This is a break.
-    - Tacks
+    - Tasks
     - Tags. E.g.: :important:, :one:two:three:
     - Follow ups. E.g.:
       -> Lorem ipsum.
@@ -53,13 +52,13 @@
     - Headlines: "*", "**", "***"
     - Pages: "p"
     - Breaks: "b"
-    - Tack: "-"
-    - Tack with unchecked checkbox: "-c"
-    - Tack with checked checkbox: "-cc"
-    - Tack with unchecked checkbox and external link: "-cl"
-    - Tack with TODO: "-ct"
-    - Tack with WORKING: "-cw"
-    - Tack with DONE: "-cd"
+    - Task: "-"
+    - Task with unchecked checkbox: "-c"
+    - Task with checked checkbox: "-cc"
+    - Task with unchecked checkbox and external link: "-cl"
+    - Task with TODO: "-t"
+    - Task with WORKING: "-w"
+    - Task with DONE: "-d"
     - Tag: "t"
     - Additional Tags: ":" (just keep hitting tab for more)
     - Follow ups: "f"
