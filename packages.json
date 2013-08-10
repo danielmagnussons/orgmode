@@ -4,9 +4,13 @@
 		{
 			"name": "orgmode",
 			"description": "orgmode is for keeping notes, maintaining TODO lists, planning projects, and authoring documents with a fast and effective plain-text system.",
+			"labels": ["text manipulation", "text navigation", "formatting", "todo", "color scheme"],
 			"author": "Daniel Magnusson (danielmagnussons)",
 			"homepage": "https://github.com/danielmagnussons/orgmode",
-			"last_modified": "2013-08-11 01:48:31",
+			"readme": "https://github.com/danielmagnussons/orgmode",
+			"donate": "https://www.gittip.com/danielmagnussons/",
+			"issues": "https://github.com/danielmagnussons/orgmode/issues?state=open",
+			"last_modified": "2013-08-11 01:50:31",
 			"platforms": {
 				"windows": [
 					{
