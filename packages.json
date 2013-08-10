@@ -4,26 +4,29 @@
 		{
 			"name": "orgmode",
 			"description": "orgmode is for keeping notes, maintaining TODO lists, planning projects, and authoring documents with a fast and effective plain-text system.",
-			"author": "danielmagnussons",
+			"author": "Daniel Magnusson (danielmagnussons)",
 			"homepage": "https://github.com/danielmagnussons/orgmode",
-			"last_modified": "2013-06-04 22:48:31",
+			"last_modified": "2013-08-11 01:48:31",
 			"platforms": {
 				"windows": [
 					{
+						"sublime_text": "*",
 						"version": "1.7.2",
 						"url": "https://nodeload.github.com/danielmagnussons/orgmode/zip/v1.7.2"
 					}
 				],
 				"linux": [
 					{
-						"version": "1.7.1",
-						"url": "https://nodeload.github.com/danielmagnussons/orgmode/zip/v1.7.1"
+						"sublime_text": "*",
+						"version": "1.7.2",
+						"url": "https://nodeload.github.com/danielmagnussons/orgmode/zip/v1.7.2"
 					}
 				],
 				"osx": [
 					{
-						"version": "1.7.1",
-						"url": "https://nodeload.github.com/danielmagnussons/orgmode/zip/v1.7.1"
+						"sublime_text": "*",
+						"version": "1.7.2",
+						"url": "https://nodeload.github.com/danielmagnussons/orgmode/zip/v1.7.2"
 					}
 				]
 			}
