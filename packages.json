@@ -1,39 +1,19 @@
 {
-	"schema_version": "1.2",
+	"schema_version": "2.0",
 	"packages": [
 		{
 			"name": "orgmode",
-			"description": "orgmode is for keeping notes, maintaining TODO lists, planning projects, and authoring documents with a fast and effective plain-text system.",
-			"labels": ["text manipulation", "text navigation", "formatting", "todo", "color scheme"],
-			"author": "Daniel Magnusson (danielmagnussons)",
+			"author": "Daniel Magnusson(danielmagnussons)",
 			"homepage": "https://github.com/danielmagnussons/orgmode",
-			"readme": "https://github.com/danielmagnussons/orgmode",
 			"donate": "https://www.gittip.com/danielmagnussons/",
-			"issues": "https://github.com/danielmagnussons/orgmode/issues?state=open",
-			"last_modified": "2013-08-11 01:50:31",
-			"platforms": {
-				"windows": [
-					{
-						"sublime_text": "*",
-						"version": "1.7.2",
-						"url": "https://nodeload.github.com/danielmagnussons/orgmode/zip/v1.7.2"
-					}
-				],
-				"linux": [
-					{
-						"sublime_text": "*",
-						"version": "1.7.2",
-						"url": "https://nodeload.github.com/danielmagnussons/orgmode/zip/v1.7.2"
-					}
-				],
-				"osx": [
-					{
-						"sublime_text": "*",
-						"version": "1.7.2",
-						"url": "https://nodeload.github.com/danielmagnussons/orgmode/zip/v1.7.2"
-					}
-				]
-			}
+			"details": "https://github.com/danielmagnussons/orgmode",
+			"labels": ["text manipulation", "text navigation", "formatting", "todo", "color scheme"],
+			"releases": [
+				{
+					"sublime_text": "*",
+					"details": "https://github.com/danielmagnussons/orgmode/tags"
+				}
+			]
 		}
 	]
 }
