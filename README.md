@@ -8,12 +8,12 @@ Tested **on Windows 7 and Ubuntu 12.04 and Mac OS X 10.7.5** with Sublime Text 2
 
 Features
 =============
-![Features](/images/screenshot1.png)
+![Features](https://raw.github.com/danielmagnussons/orgmode/master/images/screenshot1.png)
 
 
 Todo
 =============
-![Todo](/images/screenshot2.png)
+![Todo](https://raw.github.com/danielmagnussons/orgmode/master/images/screenshot2.png)
 More Todo in Sublime Text 2/Packages/README.org
 
 
