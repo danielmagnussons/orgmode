@@ -1,5 +1,5 @@
 [
-	  //orgmode
+	  /* Orgmode */
     { "keys": ["enter"], "command": "orgmode_toggle_checkbox", "context":
       [{ "key": "selector", "operator": "equal", "operand": "orgmode.checkbox" }]
     },
@@ -13,10 +13,17 @@
       [{ "key": "selector", "operator": "equal", "operand":  "orgmode.link.internal" }]
     },
 
-    //navigation
+    /* Navigation */
     { "keys": ["alt+left"], "command": "navigation_history_back"},
     { "keys": ["alt+right"], "command": "navigation_history_forward"},
 
-    //help_it
-    { "keys": ["alt+f1"], "command": "help_it" }
+    /* Helpit */
+    { "keys": ["alt+f1"], "command": "help_it" },
+
+    /* Fold headlines */
+    { "keys": ["tab"], "command": "orgmode_folding", "context":
+      [
+        { "key": "selector", "operator": "equal", "operand": "orgmode.headline" }
+      ]
+    },
 ]
