@@ -69,7 +69,9 @@
     - Checkbox checked: "cc"
     - Checkbox summary: "cs"
 
-* Todo [13/30]
+* Todo [14/31]
+  - [X] Persistant folding of headlines
+    - needs indented formatting to work.
   - [X] Autocomplete for inserting current date, write "date" => 2013-05-25 18:53
     - [X] configure in settings
   - [X] Port to Sublime Text 3
