@@ -1,0 +1,5 @@
+
+* What's new
+  - When tabbing on a headline, like this on 'What's new' it will be folded. Tab on it again to unfold.
+  - Everything folded/unfolded will be saved.
+  - Sublime has a few fold keys built in, search for 'fold' in Default.sublime.keymap
