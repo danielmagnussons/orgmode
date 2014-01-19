@@ -25,5 +25,5 @@
       [
         { "key": "selector", "operator": "equal", "operand": "orgmode.headline" }
       ]
-    },
+    }
 ]
