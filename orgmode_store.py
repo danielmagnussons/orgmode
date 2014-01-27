@@ -83,11 +83,6 @@ class OrgmodeStore(sublime_plugin.EventListener):
         if self.debug:
             print('fold: ' + str(self.db[_id]['f']))
 
-        # syntax
-        self.db[_id]['x'] = view.settings().get('syntax')
-        if self.debug:
-            print('syntax: ' + str(self.db[_id]['x']))
-
         # write to disk only if something changed
         if old_db != self.db[_id] or where == 'on_deactivated':
             with GzipFile(self.store, 'wb') as f:
@@ -134,12 +129,6 @@ class OrgmodeStore(sublime_plugin.EventListener):
                     "mark", rs, "mark", "dot", sublime.HIDDEN | sublime.PERSISTENT)
                 if self.debug:
                     print('marks: ' + str(self.db[_id]['m']))
-
-            # syntax
-            if view.settings().get('syntax') != self.db[_id]['x'] and lexists(sublime.packages_path() + '/../' + self.db[_id]['x']):
-                view.settings().set('syntax', self.db[_id]['x'])
-                if self.debug:
-                    print('syntax: ' + str(self.db[_id]['x']))
 
 
 class OrgmodeFoldingCommand(sublime_plugin.TextCommand):
