@@ -1,6 +1,6 @@
 from gzip import GzipFile
 from os import makedirs
-from os.path import lexists, dirname
+from os.path import dirname
 from pickle import load, dump
 import sublime
 import sublime_plugin
@@ -139,12 +139,11 @@ class OrgmodeFoldingCommand(sublime_plugin.TextCommand):
 
     def run(self, edit):
         (row,col) = self.view.rowcol(self.view.sel()[0].begin())
-        line = row +2
+        line = row + 1
         print(line)
         for s in self.view.sel():
             r = self.view.full_line(s)
             if self._is_region_folded(r.b + 1, self.view):
-                print('lol')
                 self.view.run_command("unfold")
                 return
 
