@@ -1,6 +1,6 @@
 
 * What's new
-  - Summary of checkboxes will work better when nestign them like below
+  - Summary of checkboxes will work better when nesting them like below
 
   * Headline with summary [2/3]
     - [X] Do this
