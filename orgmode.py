@@ -307,8 +307,8 @@ class AbstractCheckboxCommand(sublime_plugin.TextCommand):
         # print ('checked_children: ' + str(checked_children) + ', num_children: ' + str(num_children))
         return (num_children, checked_children)
 
-    def update_line(self, edit, region):
-        # print 'update_line', self.view.rowcol(region.begin())[0]+1
+    def update_line(self, edit, region, parent_update=True):
+        print ('update_line', self.view.rowcol(region.begin())[0]+1)
         (num_children, checked_children) = self.recalc_summary(region)
         if not num_children > 0:
             return False
@@ -319,10 +319,19 @@ class AbstractCheckboxCommand(sublime_plugin.TextCommand):
             self.toggle_checkbox(edit, region, False)
         # update region summary
         self.update_summary(edit, region, checked_children, num_children)
-        # update parent
-        parent = self.find_parent(region)
-        if parent:
-            self.update_line(edit, parent)
+
+        children = self.find_children(region)
+        for child in children:
+            line = self.view.line(child)
+            summary = self.get_summary(self.view.line(child))
+            if summary:
+                return self.update_line(edit, line, parent_update=False)
+
+        if parent_update:
+            parent = self.find_parent(region)
+            if parent:
+                self.update_line(edit, parent)
+
         return True
 
     def update_summary(self, edit, region, checked_children, num_children):
