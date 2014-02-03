@@ -8,10 +8,10 @@
   * Headline with summary [2/3]
     - [X] Do this
     - [X] Then this
-    - [ ] Do this big task [1/2]
-      - [X] With a lot of sub tasks
+    - [ ] Do this big task [0/2]
+      - [ ] With a lot of sub tasks
       - [ ] And check the summary checkboxes.
 
   * Second headline here with more tasks [1/2]
-    - [ ] One
-    - [X] Two
+      - [ ] One
+      - [X] Two

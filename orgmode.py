@@ -218,7 +218,7 @@ class AbstractCheckboxCommand(sublime_plugin.TextCommand):
             line = view.line(point)
             content = view.substr(line)
             summary = self.get_summary(line)
-            if summary and content.startswith("*"):
+            if summary and content.lstrip().startswith("*"):
                  break
             if self.checkbox_regex.search(content):
                 cur_indent = len(self.get_indent(content))
