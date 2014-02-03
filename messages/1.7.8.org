@@ -1,6 +1,9 @@
 
 * What's new
   - Summary of checkboxes will work better when nesting them like below
+    - Fixes: [[https://github.com/danielmagnussons/orgmode/issues/34]]
+    
+--- 
 
   * Headline with summary [2/3]
     - [X] Do this
@@ -8,3 +11,7 @@
     - [ ] Do this big task [1/2]
       - [X] With a lot of sub tasks
       - [ ] And check the summary checkboxes.
+
+  * Second headline here with more tasks [1/2]
+    - [ ] One
+    - [X] Two
