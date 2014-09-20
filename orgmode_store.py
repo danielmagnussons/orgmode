@@ -1,6 +1,6 @@
 from gzip import GzipFile
 from os import makedirs
-from os.path import dirname
+from os.path import dirname, join, abspath
 from pickle import load, dump
 import sublime
 import sublime_plugin
@@ -11,8 +11,10 @@ class OrgmodeStore(sublime_plugin.EventListener):
     def __init__(self, *args, **kwargs):
         self.debug = False
         self.db = {}
-        self.store = dirname(
-            sublime.packages_path()) + '/Settings/orgmode-store.bin.gz'
+        self.store = join(
+            abspath(sublime.packages_path()),
+            'Settings',
+            'orgmode-store.bin.gz')
         try:
             makedirs(dirname(self.store))
         except:
