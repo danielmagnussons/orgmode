@@ -1,0 +1,29 @@
+[
+	  /* Orgmode */
+    { "keys": ["enter"], "command": "orgmode_toggle_checkbox", "context":
+      [{ "key": "selector", "operator": "equal", "operand": "orgmode.checkbox" }]
+    },
+    { "keys": ["enter"], "command": "orgmode_recalc_checkbox_summary", "context":
+      [{ "key": "selector", "operator": "equal", "operand":  "orgmode.checkbox.summary" }]
+    },
+    { "keys": ["enter"], "command": "orgmode_open_link", "context":
+      [{ "key": "selector", "operator": "equal", "operand":  "orgmode.link" }]
+    },
+    { "keys": ["enter"], "command": "orgmode_cycle_internal_link", "context":
+      [{ "key": "selector", "operator": "equal", "operand":  "orgmode.link.internal" }]
+    },
+
+    /* Navigation */
+    { "keys": ["alt+left"], "command": "navigation_history_back"},
+    { "keys": ["alt+right"], "command": "navigation_history_forward"},
+
+    /* Helpit */
+    { "keys": ["alt+f1"], "command": "help_it" },
+
+    /* Fold headlines */
+    { "keys": ["tab"], "command": "orgmode_folding", "context":
+      [
+        { "key": "selector", "operator": "equal", "operand": "orgmode.headline" }
+      ]
+    }
+]
