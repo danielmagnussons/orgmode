@@ -453,6 +453,8 @@ class OrgmodeLinkCompletions(sublime_plugin.EventListener):
 class OrgmodeDateCompleter(sublime_plugin.EventListener):
 
     def on_query_completions(self, view, prefix, locations):
+        if not has_file_ext(view, "org"):
+            return []
         self.settings = sublime.load_settings('orgmode.sublime-settings')
         self.date_format = self.settings.get(
             'orgmode.autocomplete.date', "%Y-%m-%d %H:%M")
@@ -464,3 +466,15 @@ class OrgmodeDateCompleter(sublime_plugin.EventListener):
                 self.date_format)),
             ("week", str(datetime.datetime.now().isocalendar()[1])),
         ]
+
+def has_file_ext(view, ext):
+    """Returns ``True`` if view has file extension ``ext``.
+    ``ext`` may be specified with or without leading ``.``.
+    """
+    if not view.file_name(): return False
+    if not ext.strip().replace('.', ''): return False
+  
+    if not ext.startswith('.'):
+        ext = '.' + ext
+  
+    return view.file_name().endswith(ext)
