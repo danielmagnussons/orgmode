@@ -10,6 +10,12 @@
 	<dict>
 		<key>showInSymbolList</key>
 		<integer>1</integer>
+		<key>symbolTransformation</key>
+		<string>
+			 s/\s*\**\s*\z//g;  #Search for *
+			s/(?&lt;=\*)\*/  /g; #replace * with two spaces, except first
+			s/^\*( *)\s+(.*)/$1$2/;  #replace first found with a space
+		</string>
 	</dict>
 	<key>uuid</key>
 	<string>7A121D96-5F22-41B1-B749-8C4FCA7EA592</string>
