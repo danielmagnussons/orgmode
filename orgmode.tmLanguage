@@ -31,6 +31,18 @@
 			<key>match</key>
 			<string>^\s*[*]+ [^\[\]:\n]*</string>
 		</dict>
+				<dict>
+			<key>name</key>
+			<string>orgmode.deadline</string>
+			<key>match</key>
+			<string>DEADLINE: &lt;\d{4}-\d{2}-\d{2}(?:\s*\w{3}&gt;|&gt;)</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>orgmode.scheduled</string>
+			<key>match</key>
+			<string>SCHEDULED: &lt;\d{4}-\d{2}-\d{2}(?:\s*\w{3}&gt;|&gt;)</string>
+		</dict>
 		<dict>
 			<key>name</key>
 			<string>orgmode.tack</string>
