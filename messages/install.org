@@ -6,6 +6,7 @@
 
   * Context sensitive highlighting
     - Headlines
+      - Deadlines and due dates
     - Pages. E.g.:
       --- This is a page marker ---
     - Breaks. E.g.:
@@ -252,4 +253,28 @@
           <string>#AAFFAA</string>
        </dict>
     </dict>
+
+    <dict>
+      <key>name</key>
+      <string>orgmode deadline</string>
+      <key>scope</key>
+      <string>orgmode.deadline</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#AAFFAA</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>orgmode scheduled</string>
+      <key>scope</key>
+      <string>orgmode.scheduled</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#0099FF</string>
+      </dict>
+    </dict>
+
     [/code]
