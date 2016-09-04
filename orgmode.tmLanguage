@@ -59,7 +59,7 @@
 			<key>name</key>
 			<string>orgmode.checkbox</string>
 			<key>match</key>
-			<string>(\[[xX ]\])\s?</string>
+			<string>(\[[xX\- ]\])\s?</string>
 		</dict>
 		<dict>
 			<key>name</key>

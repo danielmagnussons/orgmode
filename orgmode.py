@@ -156,6 +156,9 @@ class OrgmodeCycleInternalLinkCommand(sublime_plugin.TextCommand):
         except ImportError:
             view.show_at_center(found)
 
+class CheckState:
+    Unchecked, Checked, Indeterminate, Error = range(1, 5);
+
 
 class AbstractCheckboxCommand(sublime_plugin.TextCommand):
 
@@ -163,7 +166,7 @@ class AbstractCheckboxCommand(sublime_plugin.TextCommand):
         super(AbstractCheckboxCommand, self).__init__(*args, **kwargs)
         indent_pattern = r'^(\s*).*$'
         summary_pattern = r'(\[\d*[/]\d*\])'
-        checkbox_pattern = r'(\[[X ]\])'
+        checkbox_pattern = r'(\[[X\- ]\])'
         self.indent_regex = re.compile(indent_pattern)
         self.summary_regex = re.compile(summary_pattern)
         self.checkbox_regex = re.compile(checkbox_pattern)
@@ -292,8 +295,24 @@ class AbstractCheckboxCommand(sublime_plugin.TextCommand):
             view.text_point(row, col_stop),
         )
 
-    def is_checked(self, line):
-        return '[X]' in self.view.substr(line)
+    def get_check_state(self, line):
+        if '[-]' in self.view.substr(line):
+            return CheckState.Indeterminate
+        if '[ ]' in self.view.substr(line):
+            return CheckState.Unchecked 
+        if '[X]' in self.view.substr(line):
+            return CheckState.Checked
+        return CheckState.Error
+
+    def get_check_char(self, check_state):
+        if check_state == CheckState.Unchecked:
+            return ' '
+        elif check_state == CheckState.Checked:
+            return 'X'
+        elif check_state == CheckState.Indeterminate:
+            return '-'
+        else:
+            return 'E'
 
     def recalc_summary(self, region):
         # print('recalc_summary')
@@ -303,7 +322,7 @@ class AbstractCheckboxCommand(sublime_plugin.TextCommand):
         # print children
         num_children = len(children)
         checked_children = len(
-            [child for child in children if self.is_checked(child)])
+            [child for child in children if (self.get_check_state(child) == CheckState.Checked)])
         # print ('checked_children: ' + str(checked_children) + ', num_children: ' + str(num_children))
         return (num_children, checked_children)
 
@@ -314,9 +333,13 @@ class AbstractCheckboxCommand(sublime_plugin.TextCommand):
             return False
         # update region checkbox
         if checked_children == num_children:
-            self.toggle_checkbox(edit, region, True)
+            newstate = CheckState.Checked
         else:
-            self.toggle_checkbox(edit, region, False)
+            if checked_children != 0:
+                newstate = CheckState.Indeterminate
+            else:
+                newstate = CheckState.Unchecked
+        self.toggle_checkbox(edit, region, newstate)
         # update region summary
         self.update_summary(edit, region, checked_children, num_children)
 
@@ -350,16 +373,20 @@ class AbstractCheckboxCommand(sublime_plugin.TextCommand):
         checkbox = self.get_checkbox(region)
         if not checkbox:
             return False
-        # if checked is not specified, toggle checkbox
         if checked is None:
-            checked = not self.is_checked(checkbox)
-        view.replace(edit, checkbox, '[%s]' % (
-            'X' if checked else ' '))
+            check_state = self.get_check_state(region)
+            if (check_state == CheckState.Unchecked) | (check_state == CheckState.Indeterminate):
+                check_state = CheckState.Checked
+            elif (check_state == CheckState.Checked):
+                check_state = CheckState.Unchecked
+        else:
+            check_state = checked
+        view.replace(edit, checkbox, '[%s]' % ( self.get_check_char(check_state)))
         if recurse_down:
             # all children should follow
             children = self.find_children(region)
             for child in children:
-                self.toggle_checkbox(edit, child, checked, recurse_down=True)
+                self.toggle_checkbox(edit, child, check_state, recurse_down=True)
         if recurse_up:
             # update parent
             parent = self.find_parent(region)
