@@ -12,6 +12,9 @@
     { "keys": ["enter"], "command": "orgmode_cycle_internal_link", "context":
       [{ "key": "selector", "operator": "equal", "operand":  "orgmode.link.internal" }]
     },
+    { "keys": ["enter"], "command": "orgmode_cycle_todo", "context":
+      [{ "key": "selector", "operator": "equal", "operand":  "orgmode.todo" }]
+    },
 
     /* Navigation */
     { "keys": ["alt+left"], "command": "navigation_history_back"},
