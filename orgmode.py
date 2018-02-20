@@ -406,8 +406,6 @@ class OrgmodeCycleTodoCommand(sublime_plugin.TextCommand):
 
     def run(self, edit):
 
-        print("run")
-
         view = self.view
         sels = view.sel()
         sel = sels[0]
@@ -548,8 +546,8 @@ def has_file_ext(view, ext):
     """
     if not view.file_name(): return False
     if not ext.strip().replace('.', ''): return False
-  
+
     if not ext.startswith('.'):
         ext = '.' + ext
-  
+
     return view.file_name().endswith(ext)
