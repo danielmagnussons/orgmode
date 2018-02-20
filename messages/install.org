@@ -70,15 +70,15 @@
     - Checkbox checked: "cc"
     - Checkbox summary: "cs"
 
-* Todo [14/31]
+* Todo [15/31]
   - [X] Persistant folding of headlines
     - needs indented formatting to work.
   - [X] Autocomplete for inserting current date, write "date" => 2013-05-25 18:53
     - [X] configure in settings
   - [X] Port to Sublime Text 3
-    - [X] test 
-      - [X] mac, 
-      - [X] win, 
+    - [X] test
+      - [X] mac,
+      - [X] win,
       - [X] linux
     - [X] merge into sub2 branch, test both versions
     - [X] [[mailto:daniel@testtest.se]]
@@ -130,7 +130,7 @@
     - [ ] Open call [[email:ok@ryotic.de/inbox/some title]]
     - [X] Create call [[mailto:ok@ryotic.de]]
     - [X] Create call with subject [[mailto:ok@ryotic.de/some subject]]
-  - [ ] Pressing return on a TODO chain shall set it to DONE
+  - [X] Pressing return on a TODO chain shall set it to DONE
   - [ ] ASCII tables.
   - [ ] Code remark collector. Recursively scans a specified folder for files with given filename pattern for code remarks and shows them as a list. Should be realized with begin and end markers to support later update on pressing enter on either marker.
 

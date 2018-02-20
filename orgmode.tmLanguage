@@ -108,6 +108,12 @@
 		</dict>
 		<dict>
 			<key>name</key>
+			<string>orgmode.todo</string>
+			<key>match</key>
+			<string>TODO|WORKING|DONE</string>
+		</dict>
+		<dict>
+			<key>name</key>
 			<string>orgmode.python.traceback</string>
 			<key>begin</key>
 			<string>^\s*Traceback \(most recent call last\):\s*$</string>

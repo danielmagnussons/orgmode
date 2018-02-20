@@ -394,6 +394,54 @@ class AbstractCheckboxCommand(sublime_plugin.TextCommand):
                 self.update_line(edit, parent)
 
 
+class OrgmodeCycleTodoCommand(sublime_plugin.TextCommand):
+
+    def __init__(self, *args, **kwargs):
+        super(OrgmodeCycleTodoCommand, self).__init__(*args, **kwargs)
+
+        self.status = ["TODO", "WORKING", "DONE"]
+        todo_pattern = r"|".join(self.status)
+        self.todo_regex = re.compile(todo_pattern)
+
+
+    def run(self, edit):
+
+        print("run")
+
+        view = self.view
+        sels = view.sel()
+        sel = sels[0]
+
+        if 'orgmode.todo' not in view.scope_name(sel.end()):
+            return
+
+        region = view.extract_scope(sel.end())
+
+        todo = self.get_todo(region)
+        content = self.view.substr(todo)
+
+        next_status_index = (self.status.index(content) + 1) % len(self.status)
+        view.replace(edit, todo, self.status[next_status_index])
+
+
+    def get_todo(self, line):
+        view = self.view
+        row, _ = view.rowcol(line.begin())
+        content = view.substr(line)
+        # print content
+        match = self.todo_regex.search(content)
+        if not match:
+            return None
+        # checkbox = match.group(1)
+        # print repr(checkbox)
+        # print dir(match), match.start(), match.span()
+        col_start, col_stop = match.span()
+        return sublime.Region(
+            view.text_point(row, col_start),
+            view.text_point(row, col_stop),
+        )
+
+
 class OrgmodeToggleCheckboxCommand(AbstractCheckboxCommand):
 
     def run(self, edit):
