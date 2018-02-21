@@ -25,6 +25,7 @@
 
   * Context sensitive actions
     - Toggle checkbox on pressing enter
+    - TODO chain status cycles on pressing enter
     - Auto update of checkbox summary on toggle of checkboxes
     - Recalc number of children in checkbox summary on pressing enter
     - External link opener on pressing enter
