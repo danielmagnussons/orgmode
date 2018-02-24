@@ -410,7 +410,13 @@ class OrgmodeCycleTodoCommand(sublime_plugin.TextCommand):
         sels = view.sel()
         sel = sels[0]
 
+        # Get the scope name for the current cursor position
+        # also contains other scopes
         if 'orgmode.todo' not in view.scope_name(sel.end()):
+            return
+
+        # If the cursor is at the end of the view, return.
+        if (sel.end() == sel.begin()) and (sel.end() == view.size()):
             return
 
         region = view.extract_scope(sel.end())
