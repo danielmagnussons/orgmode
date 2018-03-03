@@ -1,0 +1,22 @@
+
+* What's new
+
+  0269d47 Save folding with filename instead of view_index
+  d3021e7 Remove spammy print
+  fa487b1 Use realpath(__file__) instead of packages_path()
+  7c78a6f (martisak-todo) Merge branch 'todo' of github.com:martisak/orgmode into todo
+  36ee5a3 Hack to avoid problems if cursor is at the end of the line
+  a37d433 Added example in install.org
+  2f8f5ae Merge pull request #69 from kxtcd950/master
+  4ae2b23 Added todo cycle to default keymaps
+  25d4817 Removed a print statement 
+  bf5f7b4 Pressing enter on TODO now changes to WORKING, and then DONE
+  514814a Added tri-state checkboxes.  Some API changes as a result, but now a checkbox list performs identically to Emacs' orgmode checkboxes.
+  ab2b1c0 Merge pull request #55 from edbedbe/master
+  f5f3a56 added light org-mode color theme
+  9d22c59 Merge pull request #48 from rbenson/patch-1
+  34b9438 Merge pull request #47 from rbenson/master
+  c158dde Update install.org
+  a727cae adds support for deadlines and scheduled
+  1a1559c Merge pull request #46 from rbenson/master
+  4b9b94a Added support for headlines in GoTo Symbol
