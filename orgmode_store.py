@@ -2,19 +2,23 @@ from gzip import GzipFile
 from os import makedirs
 from os.path import dirname, join, abspath
 from pickle import load, dump
+import os
+from os.path import dirname, realpath
 import sublime
 import sublime_plugin
+import logging as log
 
+log.basicConfig(level=log.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 class OrgmodeStore(sublime_plugin.EventListener):
 
     def __init__(self, *args, **kwargs):
         self.debug = False
         self.db = {}
-        self.store = join(
-            abspath(sublime.packages_path()),
+        self.store = os.path.join(dirname(dirname(realpath(__file__))),
             'Settings',
             'orgmode-store.bin.gz')
+        log.debug("Orgmode settings path: " + self.store)
         try:
             makedirs(dirname(self.store))
         except:
@@ -28,6 +32,7 @@ class OrgmodeStore(sublime_plugin.EventListener):
         self.on_load(sublime.active_window().active_view())
         for window in sublime.windows():
             self.on_load(window.active_view())
+
 
     def on_load(self, view):
         self.restore(view, 'on_load')
@@ -74,7 +79,7 @@ class OrgmodeStore(sublime_plugin.EventListener):
         self.db[_id]['m'] = [[item.a, item.b]
                        for item in view.get_regions("mark")]
         if self.debug:
-            print('marks: ' + str(self.db[_id]['m']))
+            log.debug('marks: ' + str(self.db[_id]['m']))
 
         # previous folding save, to be able to refold
         if 'f' in self.db[_id] and list(self.db[_id]['f']) != []:
@@ -83,10 +88,11 @@ class OrgmodeStore(sublime_plugin.EventListener):
         # folding
         self.db[_id]['f'] = [[item.a, item.b] for item in view.folded_regions()]
         if self.debug:
-            print('fold: ' + str(self.db[_id]['f']))
+            log.debug('fold: ' + str(self.db[_id]['f']))
 
         # write to disk only if something changed
         if old_db != self.db[_id] or where == 'on_deactivated':
+            log.debug("Orgmode settings w path: " + self.store)
             with GzipFile(self.store, 'wb') as f:
                 dump(self.db, f, -1)
 
@@ -107,10 +113,10 @@ class OrgmodeStore(sublime_plugin.EventListener):
 
         _id = self.view_index(view)
         if self.debug:
-            print('-----------------------------------')
-            print('RESTORING from: ' + where)
-            print('file: ' + view.file_name())
-            print('_id: ' + _id)
+            log.debug('-----------------------------------')
+            log.debug('RESTORING from: ' + where)
+            log.debug('file: ' + view.file_name())
+            log.debug('_id: ' + _id)
 
         if _id in self.db:
             # fold
@@ -120,7 +126,7 @@ class OrgmodeStore(sublime_plugin.EventListener):
             if len(rs):
                 view.fold(rs)
                 if self.debug:
-                    print("fold: " + str(rs))
+                    log.debug("fold: " + str(rs))
 
             # marks
             rs = []
@@ -130,7 +136,7 @@ class OrgmodeStore(sublime_plugin.EventListener):
                 view.add_regions(
                     "mark", rs, "mark", "dot", sublime.HIDDEN | sublime.PERSISTENT)
                 if self.debug:
-                    print('marks: ' + str(self.db[_id]['m']))
+                    log.debug('marks: ' + str(self.db[_id]['m']))
 
 
 class OrgmodeFoldingCommand(sublime_plugin.TextCommand):
@@ -142,7 +148,7 @@ class OrgmodeFoldingCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         (row,col) = self.view.rowcol(self.view.sel()[0].begin())
         line = row + 1
-        print(line)
+        log.debug(line)
         for s in self.view.sel():
             r = self.view.full_line(s)
             if self._is_region_folded(r.b + 1, self.view):
