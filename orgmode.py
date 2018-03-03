@@ -327,7 +327,7 @@ class AbstractCheckboxCommand(sublime_plugin.TextCommand):
         return (num_children, checked_children)
 
     def update_line(self, edit, region, parent_update=True):
-        print ('update_line', self.view.rowcol(region.begin())[0]+1)
+        #print ('update_line', self.view.rowcol(region.begin())[0]+1)
         (num_children, checked_children) = self.recalc_summary(region)
         if not num_children > 0:
             return False
