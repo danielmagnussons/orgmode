@@ -417,6 +417,9 @@ class OrgmodeCycleTodoCommand(sublime_plugin.TextCommand):
 
         # If the cursor is at the end of the view, return.
         if (sel.end() == sel.begin()) and (sel.end() == view.size()):
+            print("well")
+            view.insert(edit, view.size(), "\n")
+            view.show(view.size())
             return
 
         region = view.extract_scope(sel.end())
