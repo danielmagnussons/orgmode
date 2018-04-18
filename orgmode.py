@@ -299,7 +299,7 @@ class AbstractCheckboxCommand(sublime_plugin.TextCommand):
         if '[-]' in self.view.substr(line):
             return CheckState.Indeterminate
         if '[ ]' in self.view.substr(line):
-            return CheckState.Unchecked 
+            return CheckState.Unchecked
         if '[X]' in self.view.substr(line):
             return CheckState.Checked
         return CheckState.Error
@@ -558,4 +558,4 @@ def has_file_ext(view, ext):
     if not ext.startswith('.'):
         ext = '.' + ext
 
-    return view.file_name().endswith(ext)
+    return view.file_name().lower().endswith(ext)
